@@ -325,8 +325,8 @@
   </a>
 
   <!-- Floating Pill Navigation (Tomorro Specification: 28px radius, Onyx Olive at ~95% opacity, Hiring Tag, Working Dropdown) -->
-  <div class="sticky top-4 z-40 px-4 sm:px-6 w-full flex justify-center">
-    <header id="main-nav-pill" class="w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-5 sm:px-6 py-2.5 flex items-center justify-between shadow-nav relative">
+  <div class="fixed top-4 left-0 w-full z-40 px-4 sm:px-6 flex justify-center pointer-events-none">
+    <header id="main-nav-pill" class="pointer-events-auto w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-5 sm:px-6 py-2.5 flex items-center justify-between shadow-nav relative">
       
       <!-- Wordmark + Hiring Tag Pill -->
       <div class="flex items-center gap-3">
@@ -340,6 +340,9 @@
 
       <!-- Nav Dropdown Triggers with Functional Interactive Dropdown Menu -->
       <nav class="hidden md:flex items-center gap-1 text-xs font-medium text-lichen-sage relative">
+        <a href="#demo" class="px-3 py-1.5 rounded-[8px] hover:text-white transition-colors">
+          Demo Interaktif
+        </a>
         <a href="#masalah" class="px-3 py-1.5 rounded-[8px] hover:text-white transition-colors">
           Tantangan
         </a>
@@ -402,16 +405,20 @@
 
   <main id="main-content" class="flex-grow z-10">
 
-    <!-- HERO SECTION (Unified Awwwards-Tier Stage: Balanced Typography, Dual CTAs, Integrated Hardware-Grade Telemetry Stage) -->
-    <section class="relative pt-6 pb-16 md:pt-10 md:pb-20 px-4 sm:px-6 max-w-[1120px] mx-auto text-center">
+    <!-- HERO SECTION (Full 1-Screen / 100dvh Cinematic Editorial Hero) -->
+    <section id="hero" class="relative min-h-screen min-h-[100dvh] flex flex-col justify-between items-center pt-24 pb-6 sm:pb-8 px-4 sm:px-6 max-w-[1120px] mx-auto text-center">
       
       <!-- Decorative Sprout Orb (Behind Hero Copy) -->
-      <div class="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 w-[540px] h-[540px] decorative-sprout-orb blur-[90px] rounded-full z-0 opacity-45 animate-orb parallax-orb" data-speed="0.08"></div>
+      <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] decorative-sprout-orb blur-[100px] rounded-full z-0 opacity-40 animate-orb parallax-orb" data-speed="0.08"></div>
 
-      <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+      <!-- Top Spacer for Golden Ratio Balance -->
+      <div class="w-full h-4"></div>
+
+      <!-- Centerpiece Content -->
+      <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center my-auto">
         
         <!-- Event Announcement Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-[9999px] border border-lichen-sage/60 bg-forest-elevated/70 text-xs text-white mb-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[9999px] border border-lichen-sage/60 bg-forest-elevated/70 text-xs text-white mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-sprout animate-pulse"></span>
           <span>Slot Pengerjaan Aktif:</span>
           <span class="text-sprout font-medium">Bulan Ini Terbuka 3 Proyek</span>
@@ -419,34 +426,34 @@
         </div>
 
         <!-- Controlled Display Headline (Clean size, 2 tight lines, zero cutoff) -->
-        <h1 class="headline-hero text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-white mb-4 max-w-xl leading-[1.05]">
+        <h1 class="headline-hero text-4xl sm:text-6xl lg:text-[62px] font-extrabold text-white mb-6 max-w-xl leading-[1.04]">
           Landing Page Cepat.<br>
           Peringkat Google <span class="text-sprout">SEO</span>.
         </h1>
 
         <!-- Centered Body Copy -->
-        <p class="text-xs sm:text-sm text-pale-fern leading-relaxed max-w-[500px] mb-6 font-normal">
+        <p class="text-sm sm:text-base text-pale-fern leading-relaxed max-w-[520px] mb-8 font-normal">
           Kami merekayasa landing page bisnis berkecepatan tinggi dengan integrasi jalur konversi <span class="text-sprout font-medium">WhatsApp</span> instan dan kepatuhan penuh standar mesin pencari Google Indonesia.
         </p>
 
         <!-- Centered Dual CTAs -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-8">
           <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20untuk%20landing%20page." 
              target="_blank" 
              rel="noopener noreferrer"
-             class="btn-pill inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-[28px] bg-sprout text-onyx-olive font-bold text-xs uppercase tracking-wider shadow-[0_0_24px_rgba(104,239,63,0.35)]">
+             class="btn-pill inline-flex items-center justify-center gap-2 px-7 py-3 rounded-[28px] bg-sprout text-onyx-olive font-bold text-xs uppercase tracking-wider shadow-[0_0_24px_rgba(104,239,63,0.35)]">
             <span>Jadwalkan Konsultasi Gratis</span>
             <span class="text-xs">→</span>
           </a>
           
           <a href="#kalkulator" 
-             class="btn-pill inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-[28px] border border-white/80 text-white hover:bg-white/10 font-medium text-xs uppercase tracking-wider">
+             class="btn-pill inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[28px] border border-white/80 text-white hover:bg-white/10 font-medium text-xs uppercase tracking-wider">
             <span>Hitung Estimasi Biaya</span>
           </a>
         </div>
 
         <!-- Ultra-Clean Micro-Metric Value Badges -->
-        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-pale-fern/90 font-mono mb-8">
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-pale-fern/90 font-mono">
           <div class="flex items-center gap-1.5">
             <span class="text-sprout font-bold">✓</span>
             <span>100% Hak Milik Kode</span>
@@ -463,22 +470,58 @@
 
       </div>
 
-      <!-- INTEGRATED HERO SHOWCASE STAGE (Hardware-Grade Double-Bezel Architecture HUD) -->
-      <div class="relative max-w-[800px] mx-auto px-2">
+      <!-- Bottom Docked Trust Strip + Scroll Down Trigger (Closes Section 1 at Exactly 100dvh) -->
+      <div class="w-full relative z-10 pt-4 pb-2 border-t border-[#30322a]/50 flex flex-col items-center gap-3">
+        <div class="flex flex-wrap justify-center items-center gap-5 sm:gap-8 text-white/40 font-display text-[11px] sm:text-xs tracking-widest uppercase">
+          <span>YOGYAKARTA</span>
+          <span class="text-sprout/60">•</span>
+          <span>JAKARTA</span>
+          <span class="text-sprout/60">•</span>
+          <span>SURABAYA</span>
+          <span class="text-sprout/60">•</span>
+          <span>BANDUNG</span>
+          <span class="text-sprout/60">•</span>
+          <span>BALI</span>
+        </div>
+        <a href="#demo" class="inline-flex items-center gap-1.5 text-xs text-sprout hover:underline font-mono">
+          <span>Jelajahi Demo Interaktif &amp; Telemetri</span>
+          <span class="animate-bounce">↓</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: DEDICATED INTERACTIVE TESTING SUITE & CONVERSION PIPELINE -->
+    <section id="demo" class="py-20 md:py-28 bg-forest-depths border-t border-[#30322a]/70 relative">
+      <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
         
-        <!-- Interactive Mode Controller Tabs (Default to Clean Engineering HUD, not Chat Testimonial) -->
-        <div class="flex items-center justify-center gap-2 mb-3">
-          <button id="tab-btn-seo" onclick="switchMockupTab('seo')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-sprout text-onyx-olive transition-all">
-            1. Standar Kecepatan Akses Mobile
-          </button>
-          <button id="tab-btn-chat" onclick="switchMockupTab('chat')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-forest-elevated border border-[#30322a] text-pale-fern hover:text-white transition-all">
-            2. Alur WhatsApp Terintegrasi
-          </button>
-          <button id="tab-btn-serp" onclick="switchMockupTab('serp')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-forest-elevated border border-[#30322a] text-pale-fern hover:text-white transition-all">
-            3. Tampilan Hasil Pencarian
-          </button>
+        <div class="text-center max-w-xl mx-auto mb-10 reveal">
+          <span class="font-mono text-xs font-bold text-sprout uppercase tracking-widest block mb-2">
+            Teknologi & Alur Konversi
+          </span>
+          <h2 class="headline-section text-2xl sm:text-4xl font-extrabold text-white mb-3">
+            Simulasi Interaksi Langsung & Kecepatan Akses
+          </h2>
+          <p class="text-xs sm:text-sm text-pale-fern font-normal leading-relaxed">
+            Uji coba langsung bagaimana calon pembeli Anda berinteraksi lewat alur WhatsApp otomatis dan rasakan kecepatan akses stabil di ponsel.
+          </p>
         </div>
 
+        <!-- The 3-Tab Interactive Testing Card -->
+        <div class="relative max-w-[840px] mx-auto reveal delay-1">
+          
+          <!-- Interactive Mode Controller Tabs (Default to Clean Engineering HUD) -->
+          <div class="flex items-center justify-center gap-2 mb-3">
+            <button id="tab-btn-seo" onclick="switchMockupTab('seo')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-sprout text-onyx-olive transition-all">
+              1. Standar Kecepatan Akses Mobile
+            </button>
+            <button id="tab-btn-chat" onclick="switchMockupTab('chat')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-forest-elevated border border-[#30322a] text-pale-fern hover:text-white transition-all">
+              2. Alur WhatsApp Terintegrasi
+            </button>
+            <button id="tab-btn-serp" onclick="switchMockupTab('serp')" class="px-3.5 py-1 rounded-full text-xs font-semibold bg-forest-elevated border border-[#30322a] text-pale-fern hover:text-white transition-all">
+              3. Tampilan Hasil Pencarian
+            </button>
+          </div>
         <!-- The Front Main Card (Pure White Card, 20px radius, shadow-mockup) -->
         <div id="mockup-front-card" class="relative z-20 w-full bg-pure-white text-onyx-olive rounded-[20px] p-5 sm:p-6 shadow-mockup border border-mist-green text-left transition-all duration-300">
           
@@ -582,7 +625,8 @@
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
     <!-- SECTION 2: LIGHT BAND (Pure White #ffffff Page + Bone White #f2f5eb Cards + Balanced Layout) -->
     <section id="masalah" class="py-16 md:py-24 bg-pure-white text-onyx-olive">
       <div class="max-w-[1120px] mx-auto px-4 sm:px-6 text-center">
