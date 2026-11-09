@@ -4,7 +4,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, HRFlowable
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, HRFlowable, Image as RLImage, PageBreak
 )
 from reportlab.pdfgen import canvas
 
@@ -135,6 +135,15 @@ def generate_pdf():
         fontName='Helvetica-Bold'
     )
 
+    caption_style = ParagraphStyle(
+        'Caption',
+        parent=styles['Normal'],
+        fontName='Helvetica-Oblique',
+        fontSize=8.5,
+        leading=11,
+        textColor=colors.HexColor("#64748B"),
+        alignment=1  # Centered
+    )
     story = []
 
     # Title & Header
@@ -193,11 +202,23 @@ def generate_pdf():
     story.append(Spacer(1, 8))
 
     # 4. Jenis dan Bentuk Konten yang Dibuat
+    story.append(PageBreak())
     story.append(Paragraph("4. Jenis dan Bentuk Konten yang Dibuat", h1_style))
     p4_text = (
         "<b>Jenis Konten:</b> Single-Page Promotional & Lead Generation Landing Page di Web Publik.<br/>"
         "<b>Tautan Live Website:</b> <font color='#0284C7'><u>https://webcraft-studio-aktif.vercel.app/</u></font><br/>"
-        "<b>Repositori Sumber Kode:</b> <font color='#0284C7'><u>https://github.com/David4rr/webcraft-studio</u></font><br/>"
+    )
+    story.append(Paragraph(p4_text, body_style))
+
+    hero_ss = "finals/ss/Screenshot 2026-11-09 at 15-10-17 Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis WebCraft Studio.png"
+    if os.path.exists(hero_ss):
+        story.append(Spacer(1, 4))
+        story.append(RLImage(hero_ss, width=470, height=281))
+        story.append(Spacer(1, 3))
+        story.append(Paragraph("<i>Gambar 1: Tampilan Antarmuka (Hero Section) Landing Page WebCraft Studio (https://webcraft-studio-aktif.vercel.app/)</i>", caption_style))
+        story.append(Spacer(1, 8))
+
+    p4_struct = (
         "<b>Struktur Konten Landing Page:</b><br/>"
         "1. <i>Top Navigation:</i> Logo WebCraft Studio, navigasi anchor (#masalah, #layanan, #proses, #faq), tombol WhatsApp.<br/>"
         "2. <i>Hero Section:</i> Heading H1 fokus kata kunci, subheadline persuasif, tombol CTA ganda, dan 3 garansi operasional.<br/>"
@@ -207,38 +228,49 @@ def generate_pdf():
         "6. <i>FAQ Interaktif (#faq):</i> Akordeon transparan menjawab pertanyaan biaya, durasi, dan masa garansi.<br/>"
         "7. <i>Final CTA & Footer:</i> Ajakan konsultasi WhatsApp, kredensial kontak (halo@webcraft.id), dan hak cipta."
     )
-    story.append(Paragraph(p4_text, body_style))
+    story.append(Paragraph(p4_struct, body_style))
     story.append(Spacer(1, 8))
 
     # 5. Analisis SEO / Analitik Digital
+    story.append(PageBreak())
     story.append(Paragraph("5. Analisis SEO / Analitik Digital", h1_style))
     story.append(Paragraph("<b>Metode & Tool Pengujian:</b> Analisis dilakukan secara live pada URL produksi menggunakan standardisasi On-Page SEO Checkup, Google Lighthouse Engine, dan Schema Structured Data Validator.", body_style))
     
     seo_rows = [
         [Paragraph("<b>Aspek Analisis</b>", table_header), Paragraph("<b>Hasil</b>", table_header), Paragraph("<b>Catatan & Interpretasi Teknis</b>", table_header)],
-        [Paragraph("SEO Health Score", table_cell_bold), Paragraph("96 / 100", table_cell), Paragraph("Sangat optimal. Memenuhi seluruh parameter teknis crawling dan indexing mesin pencari.", table_cell)],
-        [Paragraph("Keyword Utama", table_cell_bold), Paragraph("'jasa pembuatan landing page'", table_cell), Paragraph("Muncul konsisten di Title Tag, Heading H1, Meta Description, URL, dan body copy.", table_cell)],
+        [Paragraph("SEO Health Score", table_cell_bold), Paragraph("100 / 100", table_cell), Paragraph("Skor Sempurna. Lolos 100% parameter On-Page SEO Google.", table_cell)],
+        [Paragraph("Performance (Speed)", table_cell_bold), Paragraph("100 / 100", table_cell), Paragraph("Waktu muat instan &lt; 0.5s di jaringan seluler tanpa beban JS berat.", table_cell)],
+        [Paragraph("Accessibility", table_cell_bold), Paragraph("100 / 100", table_cell), Paragraph("Kontras warna tinggi (WCAG AA/AAA) dan navigasi ramah keyboard.", table_cell)],
+        [Paragraph("Best Practices", table_cell_bold), Paragraph("100 / 100", table_cell), Paragraph("Kaidah keamanan web modern, HTTPS aman, bebas error konsol.", table_cell)],
+        [Paragraph("Keyword Utama", table_cell_bold), Paragraph("'jasa pembuatan landing page'", table_cell), Paragraph("Muncul konsisten di Title Tag, Heading H1, Meta Description, URL, dan body.", table_cell)],
         [Paragraph("Title Tag", table_cell_bold), Paragraph("73 Karakter (Pass)", table_cell), Paragraph("'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio'.", table_cell)],
-        [Paragraph("Meta Description", table_cell_bold), Paragraph("161 Karakter (Pass)", table_cell), Paragraph("Informatif, menyertakan keyword komersial dan ajakan aksi WhatsApp dalam 3-5 hari kerja.", table_cell)],
-        [Paragraph("Heading Hierarchy", table_cell_bold), Paragraph("1 H1, 7 H2, 10 H3", table_cell), Paragraph("Struktur heading semantik sempurna tanpa loncatan level heading.", table_cell)],
-        [Paragraph("Canonical Tag", table_cell_bold), Paragraph("Valid (Pass)", table_cell), Paragraph("Self-referencing ke https://webcraft-studio-aktif.vercel.app/ mencegah duplicate content.", table_cell)],
-        [Paragraph("Open Graph & Cards", table_cell_bold), Paragraph("6 Properti Lengkap", table_cell), Paragraph("og:title, og:description, og:image, og:url, og:locale, twitter:card terkonfigurasi.", table_cell)],
-        [Paragraph("Structured Data", table_cell_bold), Paragraph("Schema ProfessionalService", table_cell), Paragraph("Valid JSON-LD Schema.org mendeteksi entitas jasa, alamat, katalog penawaran.", table_cell)],
-        [Paragraph("Mobile Readiness", table_cell_bold), Paragraph("100% Mobile Ready", table_cell), Paragraph("Viewport meta tag presisi, tombol sentuh minimum 44px, layout reflow tanpa overflow.", table_cell)],
-        [Paragraph("Kecepatan Akses", table_cell_bold), Paragraph("&lt; 0.6 detik", table_cell), Paragraph("Arsitektur static HTML5 tanpa plugin CMS berat, skor performa tinggi.", table_cell)],
+        [Paragraph("Meta Description", table_cell_bold), Paragraph("161 Karakter (Pass)", table_cell), Paragraph("Informatif, menyertakan keyword komersial dan ajakan aksi WhatsApp.", table_cell)],
+        [Paragraph("Heading Hierarchy", table_cell_bold), Paragraph("1 H1, 7 H2, 10 H3", table_cell), Paragraph("Struktur heading semantik berurutan sempurna tanpa loncatan level.", table_cell)],
+        [Paragraph("Canonical Tag", table_cell_bold), Paragraph("Valid (Pass)", table_cell), Paragraph("Self-referencing ke https://webcraft-studio-aktif.vercel.app/ mencegah duplicate.", table_cell)],
+        [Paragraph("Open Graph & Cards", table_cell_bold), Paragraph("6 Properti Lengkap", table_cell), Paragraph("og:title, og:description, og:image, og:url, og:locale, twitter:card aktif.", table_cell)],
+        [Paragraph("Structured Data", table_cell_bold), Paragraph("Schema ProfessionalService", table_cell), Paragraph("Valid JSON-LD Schema.org mendeteksi entitas jasa, alamat, katalog paket.", table_cell)],
+        [Paragraph("Mobile Readiness", table_cell_bold), Paragraph("100% Mobile Ready", table_cell), Paragraph("Viewport meta tag presisi, tombol sentuh minimum 44px, layout reflow mulus.", table_cell)],
         [Paragraph("Robots & Sitemap", table_cell_bold), Paragraph("Aktif & Valid (200 OK)", table_cell), Paragraph("robots.txt dan sitemap.xml dapat diakses publik oleh bot perayap Google.", table_cell)],
-        [Paragraph("Keyword Density", table_cell_bold), Paragraph("Landing: 1.84%, SEO: 1.61%", table_cell), Paragraph("Berada pada rentang ideal (1.0% - 2.5%), bebas dari indikasi keyword stuffing.", table_cell)]
+        [Paragraph("Keyword Density", table_cell_bold), Paragraph("Landing: 1.84%, SEO: 1.61%", table_cell), Paragraph("Berada pada rentang ideal (1.0% - 2.5%), bebas dari keyword stuffing.", table_cell)]
     ]
     t_seo = Table(seo_rows, colWidths=[110, 115, 262])
     t_seo.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor("#F1F5F9")),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#CBD5E1")),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 2),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
     ]))
     story.append(t_seo)
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 6))
+    ps_ss = "finals/ss/helium_screenshot_pagespeed.web.dev (2).png"
+    if os.path.exists(ps_ss):
+        story.append(Spacer(1, 4))
+        story.append(RLImage(ps_ss, width=330, height=264))
+        story.append(Spacer(1, 2))
+        story.append(Paragraph("<i>Gambar 2: Bukti Hasil Audit Resmi Google PageSpeed Insights / Lighthouse (Skor Sempurna 4x 100)</i>", caption_style))
+        story.append(Spacer(1, 4))
+    story.append(PageBreak())
 
     # 6. Refleksi dan Evaluasi
     story.append(Paragraph("6. Refleksi dan Evaluasi Technopreneurship", h1_style))
@@ -265,7 +297,6 @@ def generate_pdf():
         "<b>Bukti Publikasi & Verifikasi Online:</b><br/>"
         "• URL Live Website: <b>https://webcraft-studio-aktif.vercel.app/</b> (HTTP/2 200 OK)<br/>"
         "• File Direktif Perayap: <b>https://webcraft-studio-aktif.vercel.app/robots.txt</b> dan <b>sitemap.xml</b><br/>"
-        "• Repositori Kode Sumber Publik: <b>https://github.com/David4rr/webcraft-studio</b><br/>"
         "• Tervalidasi Schema.org ProfessionalService dan lolos uji responsifitas mobile & desktop."
     )
     story.append(Paragraph(p7_text, body_style))

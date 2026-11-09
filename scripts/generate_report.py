@@ -146,11 +146,24 @@ def create_report():
     p_jenis.add_run("Jenis Konten: ").bold = True
     p_jenis.add_run("Single-Page Promotional & Lead Generation Landing Page di Web Publik.\n")
     p_jenis.add_run("Tautan Live Website: ").bold = True
-    p_jenis.add_run("https://webcraft-studio-aktif.vercel.app/\n")
-    p_jenis.add_run("Repositori Kode Publik: ").bold = True
-    p_jenis.add_run("https://github.com/David4rr/webcraft-studio\n\n")
-    p_jenis.add_run("Arsitektur & Komposisi Halaman:\n").bold = True
-    p_jenis.add_run("1. Top Navigation Bar: Identitas brand WebCraft Studio, navigasi cepat (#masalah, #layanan, #proses, #faq), dan tombol kontak WhatsApp.\n"
+    p_jenis.add_run("https://webcraft-studio-aktif.vercel.app/\n\n")
+
+    ss_hero_path = "finals/ss/Screenshot 2026-11-09 at 15-10-17 Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis WebCraft Studio.png"
+    if os.path.exists(ss_hero_path):
+        doc.add_picture(ss_hero_path, width=Inches(6.0))
+        p_pic = doc.paragraphs[-1]
+        p_pic.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_cap = doc.add_paragraph()
+        p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        r_cap = p_cap.add_run("Gambar 1: Tampilan Antarmuka (Hero Section) Landing Page WebCraft Studio (https://webcraft-studio-aktif.vercel.app/)")
+        r_cap.font.size = Pt(9.5)
+        r_cap.font.italic = True
+        r_cap.font.color.rgb = RGBColor(100, 116, 139)
+        p_cap.paragraph_format.space_after = Pt(10)
+
+    p_ars = doc.add_paragraph()
+    p_ars.add_run("Arsitektur & Komposisi Halaman:\n").bold = True
+    p_ars.add_run("1. Top Navigation Bar: Identitas brand WebCraft Studio, navigasi cepat (#masalah, #layanan, #proses, #faq), dan tombol kontak WhatsApp.\n"
                     "2. Hero Banner: H1 utama dengan target keyword kuat, subheadline penjelas nilai, tombol CTA ganda (Konsultasi WhatsApp & Lihat Paket), dan 3 indikator jaminan teknis (3-5 Hari Kerja, PageSpeed 95+, 100% Hak Milik).\n"
                     "3. Problem & Solution Section (#masalah): Membedah 4 kendala umum website konvensional vs arsitektur modern WebCraft.\n"
                     "4. Pricing & Services Section (#layanan): 2 tier paket transparan (Paket Starter Rp 750.000 & Paket Growth SEO Pro Rp 1.450.000) lengkap dengan rincian fitur dan tombol pesan instan.\n"
@@ -173,7 +186,10 @@ def create_report():
 
     seo_data = [
         ("Aspek Analisis", "Hasil", "Catatan & Interpretasi Teknis"),
-        ("SEO Overall Health Score", "96 / 100", "Sangat optimal. Memenuhi seluruh parameter teknis crawling dan indexing mesin pencari."),
+        ("SEO Health Score (Lighthouse)", "100 / 100", "Skor Sempurna. Lolos 100% parameter teknis crawling, mobile usability, struktur heading semantik, dan indexing Google."),
+        ("Performance (Kecepatan Muat)", "100 / 100", "Waktu muat instan (< 0.5 detik) berkat arsitektur static HTML5 tanpa beban dependensi JavaScript berat."),
+        ("Accessibility (Aksesibilitas)", "100 / 100", "Memenuhi rasio kontras warna tinggi (WCAG AA/AAA) serta struktur navigasi ramah keyboard dan pembaca layar."),
+        ("Best Practices", "100 / 100", "Memenuhi seluruh kaidah keamanan web modern (HTTPS, gambar modern, bebas error konsol)."),
         ("Keyword Utama Fokus", "'jasa pembuatan landing page'", "Muncul konsisten di Title Tag, Heading H1, Meta Description, URL path, dan body copy."),
         ("Title Tag Optimization", "73 Karakter (Pass)", "'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio' — Mengandung kata kunci komersial di awal judul."),
         ("Meta Description", "161 Karakter (Pass)", "Informatif, persuasif, menyertakan proposisi nilai waktu (3-5 hari) dan call to action yang jelas."),
@@ -182,11 +198,9 @@ def create_report():
         ("Open Graph & Social Cards", "6 Properti Lengkap (Pass)", "og:title, og:description, og:image, og:url, og:locale (id_ID), dan twitter:card terkonfigurasi sempurna untuk preview medsos."),
         ("Structured Data (JSON-LD)", "Schema ProfessionalService", "Tervalidasi sesuai standar Schema.org dengan rincian tipe usaha, kontak, lokasi, jam operasional, dan katalog harga paket."),
         ("Mobile Responsiveness", "100% Mobile-Friendly", "Viewport meta tag terpasang presisi, ukuran tombol sentuh minimum 44x44px, dan tata letak reflow mulus tanpa horizontal scroll."),
-        ("Kecepatan & Performa Akses", "Waktu muat < 0.6 detik", "Mencapai performa maksimal berkat arsitektur static HTML5 tanpa beban dependensi JavaScript berat yang memblokir rendering."),
         ("Indexing Directives", "Robots.txt & XML Sitemap", "File robots.txt dan sitemap.xml aktif dan dapat diakses publik oleh bot perayap Google Search."),
         ("Kepadatan Kata Kunci (Density)", "Landing: 1.84%, SEO: 1.61%", "Berada pada rentang ideal (1.0% - 2.5%), terbebas dari indikasi keyword stuffing.")
     ]
-
     table_seo = doc.add_table(rows=len(seo_data), cols=3)
     table_seo.alignment = WD_TABLE_ALIGNMENT.CENTER
 
@@ -206,6 +220,18 @@ def create_report():
                     p.runs[0].font.bold = True
 
     doc.add_paragraph().paragraph_format.space_after = Pt(10)
+    ss_pagespeed_path = "finals/ss/helium_screenshot_pagespeed.web.dev (2).png"
+    if os.path.exists(ss_pagespeed_path):
+        doc.add_picture(ss_pagespeed_path, width=Inches(5.5))
+        p_pic2 = doc.paragraphs[-1]
+        p_pic2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_cap2 = doc.add_paragraph()
+        p_cap2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        r_cap2 = p_cap2.add_run("Gambar 2: Bukti Hasil Audit Resmi Google PageSpeed Insights / Lighthouse (Skor Sempurna 4x 100)")
+        r_cap2.font.size = Pt(9.5)
+        r_cap2.font.italic = True
+        r_cap2.font.color.rgb = RGBColor(100, 116, 139)
+        p_cap2.paragraph_format.space_after = Pt(10)
 
     # 6. Refleksi dan Evaluasi
     h6 = doc.add_paragraph()
@@ -248,9 +274,7 @@ def create_report():
                        "3. File Direktif Mesin Pencari:\n"
                        "   • Robots.txt: https://webcraft-studio-aktif.vercel.app/robots.txt\n"
                        "   • XML Sitemap: https://webcraft-studio-aktif.vercel.app/sitemap.xml\n"
-                       "4. Verifikasi Schema Structured Data: Berhasil mendeteksi objek '@type': 'ProfessionalService' dengan nama entitas 'WebCraft Studio'.\n"
-                       "5. Repositori Source Code: https://github.com/David4rr/webcraft-studio")
-
+                       "4. Verifikasi Schema Structured Data: Berhasil mendeteksi objek '@type': 'ProfessionalService' dengan nama entitas 'WebCraft Studio'.")
     # 8. Daftar Pustaka
     h8 = doc.add_paragraph()
     r_h8 = h8.add_run("8. Daftar Pustaka")
