@@ -99,21 +99,21 @@
   </a>
 
   <!-- Floating Pill Navigation (Tomorro Specification: 28px radius, Onyx Olive at ~95% opacity, Hiring Tag, Working Dropdown) -->
-  <div class="fixed top-4 left-0 w-full z-40 px-4 sm:px-6 flex justify-center pointer-events-none">
-    <header id="main-nav-pill" class="pointer-events-auto w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-5 sm:px-6 py-2.5 flex items-center justify-between shadow-nav relative">
+  <div class="fixed top-3 sm:top-4 left-0 w-full z-40 px-3 sm:px-6 flex justify-center pointer-events-none">
+    <header id="main-nav-pill" class="pointer-events-auto w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between shadow-nav relative">
       
       <!-- Wordmark + Hiring Tag Pill -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
         <a href="#" class="font-display font-extrabold text-base text-white lowercase tracking-tight focus:outline-none">
           webcraft
         </a>
-        <span class="text-[9px] font-bold tracking-wider bg-sprout text-onyx-olive px-2.5 py-0.5 rounded-[40px] uppercase">
+        <span class="hidden xs:inline-flex text-[9px] font-bold tracking-wider bg-sprout text-onyx-olive px-2.5 py-0.5 rounded-[40px] uppercase">
           Studio Aktif
         </span>
       </div>
 
       <!-- Nav Dropdown Triggers with Functional Interactive Dropdown Menu -->
-      <nav class="hidden md:flex items-center gap-1 text-xs font-semibold text-pale-fern relative">
+      <nav class="hidden lg:flex items-center gap-1 text-xs font-semibold text-pale-fern relative">
         <a href="#demo" class="px-3 py-1.5 rounded-[8px] hover:text-white transition-colors">
           Demo Interaktif
         </a>
@@ -159,28 +159,118 @@
         </a>
       </nav>
 
-      <!-- Right CTAs -->
-      <div class="flex items-center gap-2.5">
+      <!-- Right CTAs & Mobile Menu Toggle -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5">
         <a href="#layanan" 
            class="hidden sm:inline-flex items-center justify-center border border-white/70 text-white text-xs font-medium px-4 py-1.5 rounded-[28px] hover:bg-white/10 transition-colors">
           Pilihan Paket
         </a>
         <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20pembuatan%20landing%20page%20bisnis." 
            target="_blank" 
-           rel="noopener noreferrer"
-           class="btn-pill inline-flex items-center gap-1.5 bg-sprout text-onyx-olive text-xs font-bold px-4 py-1.5 rounded-[28px] shadow-[0_0_16px_rgba(104,239,63,0.3)]">
+           rel="noopener noreferrer" 
+           class="btn-pill inline-flex items-center gap-1 sm:gap-1.5 bg-sprout text-onyx-olive text-xs font-bold px-3 sm:px-4 py-1.5 rounded-[28px] shadow-[0_0_16px_rgba(104,239,63,0.3)]">
           <span>Konsultasi</span>
           <span class="text-xs">→</span>
         </a>
+        <!-- Accessible Mobile Menu Button (touch target >= 44x44px) -->
+        <button id="mobile-menu-btn" 
+                type="button" 
+                class="lg:hidden flex items-center justify-center min-w-[44px] min-h-[44px] -mr-1.5 rounded-full text-pale-fern hover:text-white hover:bg-white/10 focus:outline-none transition-colors" 
+                aria-expanded="false" 
+                aria-controls="mobile-nav-drawer" 
+                aria-label="Buka Menu Navigasi">
+          <svg class="hamburger-icon w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="close-icon hidden w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
 
     </header>
   </div>
 
+  <!-- High-End Mobile Navigation Drawer / Overlay -->
+  <div id="mobile-nav-drawer" 
+       class="is-closed fixed inset-0 z-30 bg-[#122314]/95 backdrop-blur-xl border-b border-[#3b4134] lg:hidden pt-20 pb-6 px-4 sm:px-6 overflow-y-auto flex flex-col justify-between" 
+       role="dialog" 
+       aria-modal="true" 
+       aria-label="Menu Navigasi Mobile">
+    <div class="w-full max-w-md mx-auto space-y-4">
+      <div class="flex items-center justify-between pb-2 border-b border-[#3b4134]/60">
+        <span class="text-[11px] font-mono uppercase tracking-widest text-lichen-sage font-bold">Navigasi Halaman</span>
+        <span class="text-[10px] font-mono text-sprout px-2 py-0.5 rounded-full bg-forest-elevated border border-sprout/30">WebCraft Studio</span>
+      </div>
+
+      <nav class="space-y-1" aria-label="Navigasi Menu Mobile">
+        <a href="#demo" class="mobile-nav-link flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl text-sm font-semibold text-pale-fern hover:text-white hover:bg-forest-elevated/70 transition-colors">
+          <span>Demo Interaktif</span>
+          <span class="text-xs text-lichen-sage font-mono">#01 →</span>
+        </a>
+        <a href="#masalah" class="mobile-nav-link flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl text-sm font-semibold text-pale-fern hover:text-white hover:bg-forest-elevated/70 transition-colors">
+          <span>Tantangan & Masalah</span>
+          <span class="text-xs text-lichen-sage font-mono">#02 →</span>
+        </a>
+
+        <!-- Paket Layanan Section with clear sub-items -->
+        <div class="pt-2 pb-1 space-y-1.5">
+          <div class="px-3.5 text-[11px] font-mono uppercase tracking-wider text-lichen-sage flex items-center justify-between">
+            <span>Paket Layanan</span>
+            <span class="text-[10px] text-sprout font-bold">2 Pilihan</span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <a href="#layanan" class="mobile-nav-link flex items-center justify-between p-3 rounded-xl bg-forest-elevated/50 border border-[#3b4134]/80 hover:border-sprout/50 transition-colors min-h-[48px]">
+              <div>
+                <div class="text-xs font-bold text-white">Paket Starter</div>
+                <div class="text-[11px] text-pale-fern">Solusi esensial kehadiran web profesional</div>
+              </div>
+              <span class="text-xs font-mono font-bold text-sprout bg-forest-depths px-2 py-1 rounded-lg border border-sprout/20">Rp 750k</span>
+            </a>
+            <a href="#layanan" class="mobile-nav-link flex items-center justify-between p-3 rounded-xl bg-forest-elevated/50 border border-[#3b4134]/80 hover:border-sprout/50 transition-colors min-h-[48px]">
+              <div>
+                <div class="text-xs font-bold text-white">Growth SEO Pro</div>
+                <div class="text-[11px] text-pale-fern">Riset kompetitor & optimasi ranking lokal</div>
+              </div>
+              <span class="text-xs font-mono font-bold text-sprout bg-forest-depths px-2 py-1 rounded-lg border border-sprout/20">Rp 1.450k</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="#metode" class="mobile-nav-link flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl text-sm font-semibold text-pale-fern hover:text-white hover:bg-forest-elevated/70 transition-colors">
+          <span>Alur Kerja 4 Tahap</span>
+          <span class="text-xs text-lichen-sage font-mono">#03 →</span>
+        </a>
+        <a href="#kalkulator" class="mobile-nav-link flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl text-sm font-semibold text-pale-fern hover:text-white hover:bg-forest-elevated/70 transition-colors">
+          <span>Kalkulator Investasi</span>
+          <span class="text-xs text-lichen-sage font-mono">#04 →</span>
+        </a>
+        <a href="#faq" class="mobile-nav-link flex items-center justify-between min-h-[44px] px-3.5 py-3 rounded-xl text-sm font-semibold text-pale-fern hover:text-white hover:bg-forest-elevated/70 transition-colors">
+          <span>Pertanyaan Umum / FAQ</span>
+          <span class="text-xs text-lichen-sage font-mono">#05 →</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Direct Action Primary Button -->
+    <div class="w-full max-w-md mx-auto pt-4 mt-4 border-t border-[#3b4134]/80">
+      <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20pembuatan%20landing%20page%20bisnis." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-pill w-full flex items-center justify-center gap-2 bg-sprout text-onyx-olive text-sm font-bold py-3.5 px-5 rounded-[28px] shadow-[0_0_20px_rgba(104,239,63,0.35)] min-h-[48px]">
+        <span>Konsultasi WhatsApp Sekarang</span>
+        <span class="text-base font-bold">→</span>
+      </a>
+      <p class="text-center text-[10px] text-lichen-sage mt-2">
+        Konsultasi gratis tanpa kewajiban • Respons rata-rata &lt; 15 menit
+      </p>
+    </div>
+  </div>
+
   <main id="main-content" class="flex-grow z-10">
 
     <!-- HERO SECTION (Full 1-Screen / 100dvh Cinematic Editorial Hero) -->
-    <section id="hero" class="relative min-h-screen min-h-[100dvh] flex flex-col justify-between items-center pt-24 pb-6 sm:pb-8 px-4 sm:px-6 max-w-[1120px] mx-auto text-center">
+    <section id="hero" class="relative min-h-screen min-h-[100dvh] flex flex-col justify-between items-center pt-24 pb-6 sm:pb-8 px-4 sm:px-6 max-w-[1120px] mx-auto text-center overflow-hidden">
       
       <!-- Decorative Sprout Orb (Behind Hero Copy) -->
       <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] decorative-sprout-orb blur-[100px] rounded-full z-0 opacity-40 animate-orb parallax-orb" data-speed="0.08"></div>
@@ -192,9 +282,9 @@
       <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center my-auto">
         
         <!-- Event Announcement Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[9999px] border border-lichen-sage/60 bg-forest-elevated/70 text-xs text-white mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-sprout animate-pulse"></span>
-          <span>Slot Pengerjaan Aktif:</span>
+        <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full border border-lichen-sage/60 bg-forest-elevated/70 text-[11px] sm:text-xs text-white mb-6 max-w-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-sprout animate-pulse shrink-0"></span>
+          <span class="text-white/90">Slot Pengerjaan Aktif:</span>
           <span class="text-sprout font-medium">Bulan Ini Terbuka 3 Proyek</span>
           <span class="text-pale-fern text-xs">›</span>
         </div>
