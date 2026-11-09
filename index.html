@@ -85,234 +85,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['"Outfit"', 'sans-serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            serif: ['"Instrument Serif"', 'serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
-          },
-          colors: {
-            forest: {
-              depths: '#122314',
-              elevated: '#182E1B',
-              surface: '#1F3823'
-            },
-            moss: {
-              shadow: '#273f2b'
-            },
-            lichen: {
-              sage: '#7e8371'
-            },
-            pale: {
-              fern: '#b7bda5'
-            },
-            sprout: {
-              DEFAULT: '#68ef3f',
-              wash: '#e7f9dd',
-              verdant: '#26a200'
-            },
-            mist: {
-              green: '#d9deca'
-            },
-            onyx: {
-              olive: '#30322a'
-            },
-            bone: {
-              white: '#f2f5eb'
-            },
-            soft: {
-              mist: '#dcdfe3'
-            },
-            cool: {
-              stone: '#d6d6d6'
-            },
-            carbon: '#222222',
-            pure: {
-              white: '#ffffff'
-            }
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    :root {
-      --color-forest-depths: #122314;
-      --color-moss-shadow: #273f2b;
-      --color-lichen-sage: #7e8371;
-      --color-pale-fern: #b7bda5;
-      --color-electric-sprout: #68ef3f;
-      --color-deep-verdant: #26a200;
-      --color-sprout-wash: #e7f9dd;
-      --color-mist-green: #d9deca;
-      --color-onyx-olive: #30322a;
-      --color-pure-white: #ffffff;
-      --color-bone-white: #f2f5eb;
-      --color-soft-mist: #dcdfe3;
-      --color-cool-stone: #d6d6d6;
-      --color-carbon: #222222;
-    }
-
-    body {
-      background-color: var(--color-forest-depths);
-      color: var(--color-pure-white);
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Balanced Display Typography */
-    .headline-hero {
-      font-family: 'Outfit', sans-serif;
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-    }
-
-    .headline-section {
-      font-family: 'Outfit', sans-serif;
-      line-height: 1.08;
-      letter-spacing: -0.015em;
-    }
-
-    /* Decorative Sprout Orb */
-    .decorative-sprout-orb {
-      background: radial-gradient(circle at 50% 50%, rgba(39, 63, 43, 0.85) 0%, rgba(18, 35, 20, 0.7) 60%, rgba(18, 35, 20, 0) 100%);
-    }
-
-    /* Elevation Specifications */
-    .shadow-mockup {
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .shadow-nav {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    /* Lenis Smooth Kinetic Scroll Engine */
-    html.lenis, html.lenis body {
-      height: auto;
-    }
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-    .lenis.lenis-smooth iframe {
-      pointer-events: none;
-    }
-
-    /* Laser Reading Progress Bar */
-    #reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #26a200 0%, #68ef3f 60%, #c4f9b5 100%);
-      box-shadow: 0 0 14px rgba(104, 239, 63, 0.9), 0 0 28px rgba(104, 239, 63, 0.45);
-      z-index: 1000;
-      width: 0%;
-      pointer-events: none;
-      transition: width 0.08s ease-out;
-    }
-
-    /* Floating Nav Morphing Physics */
-    #main-nav-pill {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                  background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    #main-nav-pill.nav-scrolled {
-      transform: scale(0.985);
-      background-color: rgba(18, 35, 20, 0.94);
-      border-color: rgba(104, 239, 63, 0.28);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(104, 239, 63, 0.12);
-    }
-
-    /* Motion Engine */
-    @keyframes floatOrb {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-15px, 12px) scale(1.05); }
-    }
-    .animate-orb {
-      animation: floatOrb 12s ease-in-out infinite;
-    }
-
-    /* Luxury Optical Blur & Scale Scroll Reveals */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px) scale(0.975);
-      filter: blur(8px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                  filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform, filter;
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-    /* Button Physics */
-    .btn-pill {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-pill:hover {
-      transform: translateY(-2px);
-    }
-    .btn-pill:active {
-      transform: scale(0.97);
-    }
-
-    .card-lift {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-    }
-    .card-lift:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Custom FAQ accordion transition */
-    .faq-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, padding 0.35s ease;
-      opacity: 0;
-    }
-    .faq-item.active .faq-content {
-      max-height: 250px;
-      opacity: 1;
-      padding-top: 12px;
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--color-electric-sprout);
-      outline-offset: 3px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .animate-orb { animation: none !important; }
-      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    }
-  </style>
+  <!-- Pre-compiled, Production-Ready Tailwind & Design System Stylesheet (Zero Runtime JS) -->
+  <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body class="min-h-screen flex flex-col selection:bg-sprout selection:text-carbon relative overflow-x-hidden">
 
@@ -339,7 +113,7 @@
       </div>
 
       <!-- Nav Dropdown Triggers with Functional Interactive Dropdown Menu -->
-      <nav class="hidden md:flex items-center gap-1 text-xs font-medium text-lichen-sage relative">
+      <nav class="hidden md:flex items-center gap-1 text-xs font-semibold text-pale-fern relative">
         <a href="#demo" class="px-3 py-1.5 rounded-[8px] hover:text-white transition-colors">
           Demo Interaktif
         </a>
@@ -422,7 +196,7 @@
           <span class="w-1.5 h-1.5 rounded-full bg-sprout animate-pulse"></span>
           <span>Slot Pengerjaan Aktif:</span>
           <span class="text-sprout font-medium">Bulan Ini Terbuka 3 Proyek</span>
-          <span class="text-lichen-sage text-xs">›</span>
+          <span class="text-pale-fern text-xs">›</span>
         </div>
 
         <!-- Controlled Display Headline (Clean size, 2 tight lines, zero cutoff) -->
@@ -472,15 +246,15 @@
 
       <!-- Bottom Docked Trust Strip + Scroll Down Trigger (Closes Section 1 at Exactly 100dvh) -->
       <div class="w-full relative z-10 pt-4 pb-2 border-t border-[#30322a]/50 flex flex-col items-center gap-3">
-        <div class="flex flex-wrap justify-center items-center gap-5 sm:gap-8 text-white/40 font-display text-[11px] sm:text-xs tracking-widest uppercase">
+        <div class="flex flex-wrap justify-center items-center gap-5 sm:gap-8 text-pale-fern font-display text-[11px] sm:text-xs tracking-widest uppercase font-semibold">
           <span>YOGYAKARTA</span>
-          <span class="text-sprout/60">•</span>
+          <span class="text-sprout">•</span>
           <span>JAKARTA</span>
-          <span class="text-sprout/60">•</span>
+          <span class="text-sprout">•</span>
           <span>SURABAYA</span>
-          <span class="text-sprout/60">•</span>
+          <span class="text-sprout">•</span>
           <span>BANDUNG</span>
-          <span class="text-sprout/60">•</span>
+          <span class="text-sprout">•</span>
           <span>BALI</span>
         </div>
         <a href="#demo" class="inline-flex items-center gap-1.5 text-xs text-sprout hover:underline font-mono">
@@ -540,7 +314,7 @@
             <!-- Chat Bubbles Thread -->
             <div id="chat-thread" class="space-y-2.5 mb-3 font-sans text-xs sm:text-sm">
               <div class="p-3 rounded-2xl bg-bone-white border border-mist-green/70 max-w-[85%]">
-                <span class="text-[9px] font-mono text-lichen-sage block mb-0.5">Calon Pembeli (Google Search Organic)</span>
+                <span class="text-[9px] font-mono text-moss-shadow font-bold block mb-0.5">Calon Pembeli (Google Search Organic)</span>
                 <p class="text-onyx-olive">
                   "Halo WebCraft Studio, saya menemukan penawaran Anda di Google. Apakah bisa konsultasi landing page untuk bisnis produk kecantikan kami?"
                 </p>
@@ -556,7 +330,7 @@
 
             <!-- Interactive Quick Question Clickers -->
             <div class="pt-2.5 border-t border-mist-green/70">
-              <span class="text-[10px] font-mono text-lichen-sage block mb-1.5">Klik tombol untuk mencoba interaksi cepat:</span>
+              <span class="text-[10px] font-mono text-moss-shadow font-bold block mb-1.5">Klik tombol untuk mencoba interaksi cepat:</span>
               <div class="flex flex-wrap gap-1.5">
                 <button onclick="addChatQuestion('Berapa lama estimasi pengerjaan hingga selesai?', 'Rata-rata selesai dalam 3-5 hari kerja setelah data materi diserahkan.')" class="px-2.5 py-1 rounded-full bg-bone-white hover:bg-mist-green/40 border border-mist-green text-[10px] text-onyx-olive font-medium transition-colors">
                   ⏱️ Berapa lama pengerjaan?
@@ -580,22 +354,21 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center mb-3">
               <div class="p-2.5 rounded-xl bg-bone-white border border-mist-green/50">
-                <span class="text-[9px] font-mono text-lichen-sage block">Kecepatan Buka</span>
+                <span class="text-[9px] font-mono text-moss-shadow font-semibold block">Kecepatan Buka</span>
                 <span class="font-display text-xl font-extrabold text-sprout-verdant">0.48 Detik</span>
               </div>
               <div class="p-2.5 rounded-xl bg-bone-white border border-mist-green/50">
-                <span class="text-[9px] font-mono text-lichen-sage block">Kenyamanan Visual</span>
+                <span class="text-[9px] font-mono text-moss-shadow font-semibold block">Kenyamanan Visual</span>
                 <span class="font-display text-xl font-extrabold text-onyx-olive">Stabil 100%</span>
               </div>
               <div class="p-2.5 rounded-xl bg-bone-white border border-mist-green/50">
-                <span class="text-[9px] font-mono text-lichen-sage block">Respons Sentuhan</span>
+                <span class="text-[9px] font-mono text-moss-shadow font-semibold block">Respons Sentuhan</span>
                 <span class="font-display text-xl font-extrabold text-onyx-olive">&lt; 15 ms</span>
               </div>
               <div class="p-2.5 rounded-xl bg-bone-white border border-mist-green/50">
-                <span class="text-[9px] font-mono text-lichen-sage block">Kesiapan Google</span>
+                <span class="text-[9px] font-mono text-moss-shadow font-semibold block">Kesiapan Google</span>
                 <span class="font-display text-xl font-extrabold text-sprout-verdant">Maksimal</span>
               </div>
-            </div>
 
             <div class="p-3 rounded-xl bg-[#f0faeb] border border-sprout/40 text-xs text-moss-shadow">
               <span class="font-bold text-sprout-verdant">Keunggulan Klien:</span> Landing page terbuka tanpa jeda di jaringan 4G ponsel, memastikan calon pembeli tidak beralih ke kompetitor sebelum melihat produk Anda.
@@ -612,7 +385,7 @@
             <div class="p-3.5 rounded-xl bg-bone-white border border-mist-green/80">
               <div class="flex items-center gap-1.5 mb-1">
                 <div class="w-4 h-4 rounded-full bg-sprout-verdant flex items-center justify-center text-[9px] text-white font-bold">W</div>
-                <span class="font-mono text-xs text-lichen-sage">https://webcraft.id › landing-page-bisnis</span>
+                <span class="font-mono text-xs text-moss-shadow font-semibold">https://webcraft.id › landing-page-bisnis</span>
               </div>
               <a href="#" class="text-sm font-bold text-[#1a0dab] hover:underline block mb-1">
                 Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis
@@ -639,7 +412,7 @@
           Kenapa Sebagian Besar Website Gagal Menghasilkan Transaksi?
         </h2>
 
-        <p class="text-xs sm:text-sm text-lichen-sage max-w-lg mx-auto mb-12 font-normal reveal">
+        <p class="text-xs sm:text-sm text-[#474d3d] max-w-lg mx-auto mb-12 font-normal reveal">
           Website yang lambat, rumit diakses dari ponsel, dan tidak terindeks dengan baik di Google akan ditinggalkan pembeli sebelum mereka sempat melihat penawaran Anda.
         </p>
 
@@ -652,7 +425,7 @@
                 <h3 class="font-display text-base font-bold text-onyx-olive">01 / Beban Plugin Berat</h3>
                 <span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-mono text-[9px] uppercase font-bold">Kelemahan</span>
               </div>
-              <p class="text-xs text-lichen-sage leading-relaxed mb-4 font-normal">
+              <p class="text-xs text-[#3e4434] leading-relaxed mb-4 font-normal">
                 Banyak situs dibuat menggunakan CMS template dengan puluhan plugin yang tidak perlu, menyebabkan waktu muat lebih dari 4 detik.
               </p>
             </div>
@@ -667,7 +440,7 @@
                 <h3 class="font-display text-base font-bold text-onyx-olive">02 / Hilang di Google</h3>
                 <span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-mono text-[9px] uppercase font-bold">Kelemahan</span>
               </div>
-              <p class="text-xs text-lichen-sage leading-relaxed mb-4 font-normal">
+              <p class="text-xs text-[#3e4434] leading-relaxed mb-4 font-normal">
                 Website tanpa pengaturan heading rapi, tanpa metadata canonical, dan tanpa Schema.org tidak diprioritaskan algoritma pencarian.
               </p>
             </div>
@@ -682,7 +455,7 @@
                 <h3 class="font-display text-base font-bold text-onyx-olive">03 / Formulir Rumit</h3>
                 <span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-mono text-[9px] uppercase font-bold">Kelemahan</span>
               </div>
-              <p class="text-xs text-lichen-sage leading-relaxed mb-4 font-normal">
+              <p class="text-xs text-[#3e4434] leading-relaxed mb-4 font-normal">
                 Formulir kontak email yang panjang menimbulkan friksi. Calon pembeli Indonesia lebih menyukai tanya-jawab langsung yang cepat.
               </p>
             </div>
@@ -697,7 +470,7 @@
                 <h3 class="font-display text-base font-bold text-onyx-olive">04 / Biaya Sewa Bulanan</h3>
                 <span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-mono text-[9px] uppercase font-bold">Kelemahan</span>
               </div>
-              <p class="text-xs text-lichen-sage leading-relaxed mb-4 font-normal">
+              <p class="text-xs text-[#3e4434] leading-relaxed mb-4 font-normal">
                 Platform website builder berlangganan membebani bisnis Anda dengan tagihan berulang dan mengunci file situs jika Anda berhenti.
               </p>
             </div>
@@ -710,10 +483,10 @@
 
         <!-- Ecosystem Strip -->
         <div class="pt-6 border-t border-mist-green max-w-3xl mx-auto">
-          <p class="text-[10px] font-mono text-lichen-sage uppercase tracking-wider mb-4">
+          <p class="text-[10px] font-mono text-moss-shadow font-bold uppercase tracking-wider mb-4">
             Standar Industri & Ekosistem Teruji
           </p>
-          <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 items-center text-center font-display font-bold text-xs text-onyx-olive/70">
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 items-center text-center font-display font-bold text-xs text-onyx-olive">
             <span>GOOGLE SERP</span>
             <span>WHATSAPP API</span>
             <span>SCHEMA.ORG</span>
@@ -796,7 +569,7 @@
           <h2 class="headline-section text-2xl sm:text-4xl font-extrabold text-onyx-olive mb-2">
             Pilihan Paket Pembuatan Landing Page
           </h2>
-          <p class="text-xs sm:text-sm text-lichen-sage font-normal">
+          <p class="text-xs sm:text-sm text-[#474d3d] font-normal">
             Tanpa biaya tersembunyi. Didesain secara spesifik untuk meningkatkan penjualan produk Anda.
           </p>
         </div>
@@ -808,17 +581,17 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
                 <h3 class="font-display text-lg font-bold text-onyx-olive tracking-tight">Paket Starter</h3>
-                <span class="font-mono text-[9px] px-2.5 py-0.5 rounded-[20px] border border-mist-green bg-pure-white text-lichen-sage uppercase font-bold shrink-0">
+                <span class="font-mono text-[9px] px-2.5 py-0.5 rounded-[20px] border border-mist-green bg-pure-white text-moss-shadow uppercase font-bold shrink-0">
                   UMKM & Personal
                 </span>
               </div>
-              <p class="text-xs text-lichen-sage mb-5 font-normal">
+              <p class="text-xs text-[#3e4434] mb-5 font-normal">
                 Solusi tepat bagi bisnis rintisan yang membutuhkan kehadiran online yang cepat, kredibel, dan profesional.
               </p>
               
               <div class="mb-5 pb-4 border-b border-mist-green">
                 <span class="font-display text-3xl font-extrabold text-onyx-olive">Rp 750.000</span>
-                <span class="text-xs text-lichen-sage block mt-0.5 font-mono">Biaya satu kali pengerjaan</span>
+                <span class="text-xs text-moss-shadow block mt-0.5 font-mono font-medium">Biaya satu kali pengerjaan</span>
               </div>
 
               <ul class="space-y-2.5 text-xs text-onyx-olive mb-7 font-normal">
@@ -867,13 +640,13 @@
                   Bisnis & Jasa
                 </span>
               </div>
-              <p class="text-xs text-lichen-sage mb-5 font-normal">
+              <p class="text-xs text-[#3e4434] mb-5 font-normal">
                 Dirancang khusus untuk memenangkan persaingan kata kunci lokal Google dan memaksimalkan konversi pembeli.
               </p>
               
               <div class="mb-5 pb-4 border-b border-mist-green">
                 <span class="font-display text-3xl font-extrabold text-sprout-verdant">Rp 1.450.000</span>
-                <span class="text-xs text-lichen-sage block mt-0.5 font-mono">Biaya satu kali pengerjaan</span>
+                <span class="text-xs text-moss-shadow block mt-0.5 font-mono font-medium">Biaya satu kali pengerjaan</span>
               </div>
 
               <ul class="space-y-2.5 text-xs text-onyx-olive mb-7 font-normal">
@@ -984,7 +757,7 @@
 
           <div class="p-4 rounded-xl bg-[#22271f] border border-[#3b4134] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span class="text-[10px] font-mono text-lichen-sage uppercase tracking-wider block">Total Estimasi Investasi</span>
+              <span class="text-[10px] font-mono text-pale-fern uppercase tracking-wider block">Total Estimasi Investasi</span>
               <span id="calc-total-display" class="font-display text-2xl sm:text-3xl font-extrabold text-sprout">Rp 750.000</span>
             </div>
             <a id="calc-whatsapp-btn" 
@@ -1079,7 +852,7 @@
   </main>
 
   <!-- FOOTER (Professional Multi-Column Agency Footer) -->
-  <footer class="border-t border-[#30322a] bg-[#0d1a0f] pt-14 pb-10 z-10 text-xs text-lichen-sage">
+  <footer class="border-t border-[#30322a] bg-[#0d1a0f] pt-14 pb-10 z-10 text-xs text-pale-fern">
     <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10">
@@ -1130,15 +903,15 @@
           <h4 class="font-display font-bold text-xs uppercase tracking-wider text-white mb-3">Kontak Studio</h4>
           <div class="space-y-2.5 text-xs text-pale-fern">
             <p>
-              <span class="text-lichen-sage block text-[10px] uppercase font-mono">WhatsApp Konsultasi:</span>
+              <span class="text-mist-green block text-[10px] uppercase font-mono font-medium">WhatsApp Konsultasi:</span>
               <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="text-sprout font-bold hover:underline">+62 812-3456-7890</a>
             </p>
             <p>
-              <span class="text-lichen-sage block text-[10px] uppercase font-mono">Email Resmi:</span>
+              <span class="text-mist-green block text-[10px] uppercase font-mono font-medium">Email Resmi:</span>
               <a href="mailto:halo@webcraft.id" class="text-white hover:text-sprout transition-colors">halo@webcraft.id</a>
             </p>
             <p>
-              <span class="text-lichen-sage block text-[10px] uppercase font-mono">Lokasi Studio:</span>
+              <span class="text-mist-green block text-[10px] uppercase font-mono font-medium">Lokasi Studio:</span>
               <span class="text-pale-fern">Yogyakarta, Daerah Istimewa Yogyakarta</span>
             </p>
           </div>
@@ -1151,7 +924,7 @@
         <p class="font-mono text-[10px] text-pale-fern/80">
           © 2026 WebCraft Studio. Seluruh hak cipta dilindungi undang-undang.
         </p>
-        <div class="flex items-center gap-5 text-[10px] text-lichen-sage">
+        <div class="flex items-center gap-5 text-[10px] text-pale-fern">
           <a href="#masalah" class="hover:text-white transition-colors">Standar Teknis</a>
           <a href="#faq" class="hover:text-white transition-colors">Garansi Layanan</a>
           <a href="https://wa.me/6281234567890" class="hover:text-white transition-colors">Bantuan WhatsApp</a>
@@ -1161,224 +934,11 @@
     </div>
   </footer>
 
-  <!-- High-End Smooth Scroll Engine (Lenis) -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <!-- High-End Smooth Scroll Engine (Lenis) with Defer -->
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 
-  <!-- Interactive JavaScript Suite (Smooth Scroll, Dropdowns, Tabs, Chat Generator, Calculator) -->
-  <script>
-    // 0. Kinetic Smooth Scroll & Dynamic Nav Orchestrator
-    let lenis = null;
-    if (typeof Lenis !== 'undefined') {
-      lenis = new Lenis({
-        duration: 1.25,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1.05,
-        touchMultiplier: 1.2,
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      // Smooth Anchor Click Navigation
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (href === '#' || !href) return;
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            lenis.scrollTo(target, { offset: -80, duration: 1.2 });
-          }
-        });
-      });
-
-      // Scroll Event Orchestration
-      lenis.on('scroll', (e) => {
-        const scrolled = e.limit > 0 ? (e.scroll / e.limit) * 100 : 0;
-        const bar = document.getElementById('reading-progress');
-        if (bar) bar.style.width = scrolled + '%';
-
-        const nav = document.getElementById('main-nav-pill');
-        if (nav) {
-          if (e.scroll > 40) nav.classList.add('nav-scrolled');
-          else nav.classList.remove('nav-scrolled');
-        }
-
-        const orbs = document.querySelectorAll('.parallax-orb');
-        orbs.forEach(orb => {
-          const speed = parseFloat(orb.dataset.speed || '0.08');
-          orb.style.transform = `translate3d(0, ${e.scroll * speed * -0.5}px, 0)`;
-        });
-      });
-    } else {
-      window.addEventListener('scroll', () => {
-        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const bar = document.getElementById('reading-progress');
-        if (bar) bar.style.width = scrolled + '%';
-
-        const nav = document.getElementById('main-nav-pill');
-        if (nav) {
-          if (winScroll > 40) nav.classList.add('nav-scrolled');
-          else nav.classList.remove('nav-scrolled');
-        }
-      }, { passive: true });
-    }
-    // 2. Interactive Navbar Dropdown
-    const dropdownWrapper = document.getElementById('nav-dropdown-wrapper');
-    const dropdownBtn = document.getElementById('nav-dropdown-btn');
-    const dropdownMenu = document.getElementById('nav-dropdown-menu');
-    const dropdownCaret = document.getElementById('nav-dropdown-caret');
-
-    if (dropdownBtn && dropdownMenu) {
-      dropdownBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isHidden = dropdownMenu.classList.contains('hidden');
-        if (isHidden) {
-          dropdownMenu.classList.remove('hidden');
-          dropdownCaret.style.transform = 'rotate(180deg)';
-          dropdownBtn.setAttribute('aria-expanded', 'true');
-        } else {
-          dropdownMenu.classList.add('hidden');
-          dropdownCaret.style.transform = 'rotate(0deg)';
-          dropdownBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!dropdownWrapper.contains(e.target)) {
-          dropdownMenu.classList.add('hidden');
-          dropdownCaret.style.transform = 'rotate(0deg)';
-          dropdownBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', () => {
-          dropdownMenu.classList.add('hidden');
-          dropdownCaret.style.transform = 'rotate(0deg)';
-          dropdownBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
-    // 3. Mockup Tab Switcher
-    function switchMockupTab(tabName) {
-      const chatTab = document.getElementById('mockup-tab-chat');
-      const seoTab = document.getElementById('mockup-tab-seo');
-      const serpTab = document.getElementById('mockup-tab-serp');
-      
-      const btnChat = document.getElementById('tab-btn-chat');
-      const btnSeo = document.getElementById('tab-btn-seo');
-      const btnSerp = document.getElementById('tab-btn-serp');
-
-      const allTabs = [chatTab, seoTab, serpTab];
-      const allBtns = [btnChat, btnSeo, btnSerp];
-
-      allTabs.forEach(t => { if (t) t.classList.add('hidden'); });
-      allBtns.forEach(b => {
-        if (b) {
-          b.className = 'px-3.5 py-1 rounded-full text-xs font-semibold bg-forest-elevated border border-[#30322a] text-pale-fern hover:text-white transition-all';
-        }
-      });
-
-      if (tabName === 'chat' && chatTab && btnChat) {
-        chatTab.classList.remove('hidden');
-        btnChat.className = 'px-3.5 py-1 rounded-full text-xs font-semibold bg-sprout text-onyx-olive transition-all';
-      } else if (tabName === 'seo' && seoTab && btnSeo) {
-        seoTab.classList.remove('hidden');
-        btnSeo.className = 'px-3.5 py-1 rounded-full text-xs font-semibold bg-sprout text-onyx-olive transition-all';
-      } else if (tabName === 'serp' && serpTab && btnSerp) {
-        serpTab.classList.remove('hidden');
-        btnSerp.className = 'px-3.5 py-1 rounded-full text-xs font-semibold bg-sprout text-onyx-olive transition-all';
-      }
-    }
-
-    // 4. Interactive WhatsApp Chat Stream
-    function addChatQuestion(questionText, answerText) {
-      const thread = document.getElementById('chat-thread');
-      if (!thread) return;
-
-      const qDiv = document.createElement('div');
-      qDiv.className = 'p-3 rounded-2xl bg-bone-white border border-mist-green/70 max-w-[85%]';
-      qDiv.innerHTML = `<span class="text-[9px] font-mono text-lichen-sage block mb-0.5">Pertanyaan Tambahan</span><p class="text-onyx-olive font-medium">"${questionText}"</p>`;
-      thread.appendChild(qDiv);
-
-      setTimeout(() => {
-        const aDiv = document.createElement('div');
-        aDiv.className = 'p-3 rounded-2xl bg-[#f0faeb] border border-sprout/40 ml-auto max-w-[85%] text-right';
-        aDiv.innerHTML = `<span class="text-[9px] font-mono text-moss-shadow block mb-0.5">Jawaban WebCraft Studio</span><p class="text-onyx-olive font-medium">"${answerText}"</p>`;
-        thread.appendChild(aDiv);
-      }, 350);
-    }
-
-    // 5. Interactive Pricing Calculator
-    function calculateTotal() {
-      let base = 750000;
-      const radios = document.getElementsByName('calc-base');
-      for (const r of radios) {
-        if (r.checked) {
-          base = parseInt(r.value, 10);
-          break;
-        }
-      }
-
-      let addon = 0;
-      const optDomain = document.getElementById('opt-domain');
-      const optGmb = document.getElementById('opt-gmb');
-      const optSpeed = document.getElementById('opt-speed');
-
-      if (optDomain && optDomain.checked) addon += parseInt(optDomain.value, 10);
-      if (optGmb && optGmb.checked) addon += parseInt(optGmb.value, 10);
-      if (optSpeed && optSpeed.checked) addon += parseInt(optSpeed.value, 10);
-
-      const total = base + addon;
-      const formatted = 'Rp ' + total.toLocaleString('id-ID');
-      const display = document.getElementById('calc-total-display');
-      if (display) display.innerText = formatted;
-
-      const btn = document.getElementById('calc-whatsapp-btn');
-      if (btn) {
-        btn.href = `https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20sudah%20hitung%20estimasi%20layanan%20sebesar%20${encodeURIComponent(formatted)}.`;
-      }
-    }
-
-    // 6. Interactive FAQ Accordion
-    function toggleFaq(el) {
-      const allItems = document.querySelectorAll('.faq-item');
-      const isActive = el.classList.contains('active');
-      allItems.forEach(item => item.classList.remove('active'));
-      if (!isActive) {
-        el.classList.add('active');
-      }
-    }
-
-    // 7. Luxury Optical Blur & Scale Scroll Reveals via IntersectionObserver
-    document.addEventListener("DOMContentLoaded", () => {
-      const reveals = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-
-        reveals.forEach(el => observer.observe(el));
-      } else {
-        reveals.forEach(el => el.classList.add("is-visible"));
-      }
-    });
-  </script>
+  <!-- Modular Application Suite -->
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>

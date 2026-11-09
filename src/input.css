@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest-depths: #122314;
+  --color-moss-shadow: #273f2b;
+  --color-lichen-sage: #7e8371;
+  --color-pale-fern: #b7bda5;
+  --color-electric-sprout: #68ef3f;
+  --color-deep-verdant: #26a200;
+  --color-sprout-wash: #e7f9dd;
+  --color-mist-green: #d9deca;
+  --color-onyx-olive: #30322a;
+  --color-pure-white: #ffffff;
+  --color-bone-white: #f2f5eb;
+  --color-soft-mist: #dcdfe3;
+  --color-cool-stone: #d6d6d6;
+  --color-carbon: #222222;
+}
+
+body {
+  background-color: var(--color-forest-depths);
+  color: var(--color-pure-white);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Balanced Display Typography */
+.headline-hero {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.headline-section {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+/* Decorative Sprout Orb */
+.decorative-sprout-orb {
+  background: radial-gradient(circle at 50% 50%, rgba(39, 63, 43, 0.85) 0%, rgba(18, 35, 20, 0.7) 60%, rgba(18, 35, 20, 0) 100%);
+}
+
+/* Elevation Specifications */
+.shadow-mockup {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.shadow-nav {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Lenis Smooth Kinetic Scroll Engine */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Laser Reading Progress Bar */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #26a200 0%, #68ef3f 60%, #c4f9b5 100%);
+  box-shadow: 0 0 14px rgba(104, 239, 63, 0.9), 0 0 28px rgba(104, 239, 63, 0.45);
+  z-index: 1000;
+  width: 0%;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+}
+
+/* Floating Nav Morphing Physics */
+#main-nav-pill {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#main-nav-pill.nav-scrolled {
+  transform: scale(0.985);
+  background-color: rgba(18, 35, 20, 0.94);
+  border-color: rgba(104, 239, 63, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(104, 239, 63, 0.12);
+}
+
+/* Motion Engine */
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-15px, 12px) scale(1.05); }
+}
+.animate-orb {
+  animation: floatOrb 12s ease-in-out infinite;
+}
+
+/* Luxury Optical Blur & Scale Scroll Reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.975);
+  filter: blur(8px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Button Physics */
+.btn-pill {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-pill:hover {
+  transform: translateY(-2px);
+}
+.btn-pill:active {
+  transform: scale(0.97);
+}
+
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom FAQ accordion transition */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, padding 0.35s ease;
+  opacity: 0;
+}
+.faq-item.active .faq-content {
+  max-height: 250px;
+  opacity: 1;
+  padding-top: 12px;
+}
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-electric-sprout);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orb { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
