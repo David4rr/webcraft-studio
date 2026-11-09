@@ -196,7 +196,7 @@ def generate_pdf():
     story.append(Paragraph("4. Jenis dan Bentuk Konten yang Dibuat", h1_style))
     p4_text = (
         "<b>Jenis Konten:</b> Single-Page Promotional & Lead Generation Landing Page di Web Publik.<br/>"
-        "<b>Tautan Live Website:</b> <font color='#0284C7'><u>https://webcraft-studio-id-two.vercel.app/</u></font><br/>"
+        "<b>Tautan Live Website:</b> <font color='#0284C7'><u>https://webcraft-studio-aktif.vercel.app/</u></font><br/>"
         "<b>Repositori Sumber Kode:</b> <font color='#0284C7'><u>https://github.com/David4rr/webcraft-studio</u></font><br/>"
         "<b>Struktur Konten Landing Page:</b><br/>"
         "1. <i>Top Navigation:</i> Logo WebCraft Studio, navigasi anchor (#masalah, #layanan, #proses, #faq), tombol WhatsApp.<br/>"
@@ -221,7 +221,7 @@ def generate_pdf():
         [Paragraph("Title Tag", table_cell_bold), Paragraph("73 Karakter (Pass)", table_cell), Paragraph("'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio'.", table_cell)],
         [Paragraph("Meta Description", table_cell_bold), Paragraph("161 Karakter (Pass)", table_cell), Paragraph("Informatif, menyertakan keyword komersial dan ajakan aksi WhatsApp dalam 3-5 hari kerja.", table_cell)],
         [Paragraph("Heading Hierarchy", table_cell_bold), Paragraph("1 H1, 7 H2, 10 H3", table_cell), Paragraph("Struktur heading semantik sempurna tanpa loncatan level heading.", table_cell)],
-        [Paragraph("Canonical Tag", table_cell_bold), Paragraph("Valid (Pass)", table_cell), Paragraph("Self-referencing ke https://webcraft-studio-id-two.vercel.app/ mencegah duplicate content.", table_cell)],
+        [Paragraph("Canonical Tag", table_cell_bold), Paragraph("Valid (Pass)", table_cell), Paragraph("Self-referencing ke https://webcraft-studio-aktif.vercel.app/ mencegah duplicate content.", table_cell)],
         [Paragraph("Open Graph & Cards", table_cell_bold), Paragraph("6 Properti Lengkap", table_cell), Paragraph("og:title, og:description, og:image, og:url, og:locale, twitter:card terkonfigurasi.", table_cell)],
         [Paragraph("Structured Data", table_cell_bold), Paragraph("Schema ProfessionalService", table_cell), Paragraph("Valid JSON-LD Schema.org mendeteksi entitas jasa, alamat, katalog penawaran.", table_cell)],
         [Paragraph("Mobile Readiness", table_cell_bold), Paragraph("100% Mobile Ready", table_cell), Paragraph("Viewport meta tag presisi, tombol sentuh minimum 44px, layout reflow tanpa overflow.", table_cell)],
@@ -263,8 +263,8 @@ def generate_pdf():
     story.append(Paragraph("7. Dokumentasi dan Lampiran Bukti Publikasi", h1_style))
     p7_text = (
         "<b>Bukti Publikasi & Verifikasi Online:</b><br/>"
-        "• URL Live Website: <b>https://webcraft-studio-id-two.vercel.app/</b> (HTTP/2 200 OK)<br/>"
-        "• File Direktif Perayap: <b>https://webcraft-studio-id-two.vercel.app/robots.txt</b> dan <b>sitemap.xml</b><br/>"
+        "• URL Live Website: <b>https://webcraft-studio-aktif.vercel.app/</b> (HTTP/2 200 OK)<br/>"
+        "• File Direktif Perayap: <b>https://webcraft-studio-aktif.vercel.app/robots.txt</b> dan <b>sitemap.xml</b><br/>"
         "• Repositori Kode Sumber Publik: <b>https://github.com/David4rr/webcraft-studio</b><br/>"
         "• Tervalidasi Schema.org ProfessionalService dan lolos uji responsifitas mobile & desktop."
     )

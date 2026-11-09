@@ -146,7 +146,7 @@ def create_report():
     p_jenis.add_run("Jenis Konten: ").bold = True
     p_jenis.add_run("Single-Page Promotional & Lead Generation Landing Page di Web Publik.\n")
     p_jenis.add_run("Tautan Live Website: ").bold = True
-    p_jenis.add_run("https://webcraft-studio-id-two.vercel.app/\n")
+    p_jenis.add_run("https://webcraft-studio-aktif.vercel.app/\n")
     p_jenis.add_run("Repositori Kode Publik: ").bold = True
     p_jenis.add_run("https://github.com/David4rr/webcraft-studio\n\n")
     p_jenis.add_run("Arsitektur & Komposisi Halaman:\n").bold = True
@@ -178,7 +178,7 @@ def create_report():
         ("Title Tag Optimization", "73 Karakter (Pass)", "'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio' — Mengandung kata kunci komersial di awal judul."),
         ("Meta Description", "161 Karakter (Pass)", "Informatif, persuasif, menyertakan proposisi nilai waktu (3-5 hari) dan call to action yang jelas."),
         ("Heading Hierarchy (H1-H3)", "1 H1, 7 H2, 10 H3 (Pass)", "Struktur heading semantik sempurna. Tidak ada heading ganda pada H1 dan tidak ada loncatan level heading."),
-        ("Canonical Tag", "https://webcraft-studio-id-two.vercel.app/", "Valid dan self-referencing. Mencegah potensi penalti duplicate content akibat variasi protokol atau parameter URL."),
+        ("Canonical Tag", "https://webcraft-studio-aktif.vercel.app/", "Valid dan self-referencing. Mencegah potensi penalti duplicate content akibat variasi protokol atau parameter URL."),
         ("Open Graph & Social Cards", "6 Properti Lengkap (Pass)", "og:title, og:description, og:image, og:url, og:locale (id_ID), dan twitter:card terkonfigurasi sempurna untuk preview medsos."),
         ("Structured Data (JSON-LD)", "Schema ProfessionalService", "Tervalidasi sesuai standar Schema.org dengan rincian tipe usaha, kontak, lokasi, jam operasional, dan katalog harga paket."),
         ("Mobile Responsiveness", "100% Mobile-Friendly", "Viewport meta tag terpasang presisi, ukuran tombol sentuh minimum 44x44px, dan tata letak reflow mulus tanpa horizontal scroll."),
@@ -243,11 +243,11 @@ def create_report():
 
     p_lampiran = doc.add_paragraph()
     p_lampiran.add_run("Bukti Publikasi & Audit Teknis:\n").bold = True
-    p_lampiran.add_run("1. URL Produksi Aktif: https://webcraft-studio-id-two.vercel.app/\n"
+    p_lampiran.add_run("1. URL Produksi Aktif: https://webcraft-studio-aktif.vercel.app/\n"
                        "2. Status HTTP Server: HTTP/2 200 OK (Disajikan melalui jaringan global Edge CDN Vercel dengan enkripsi HTTPS otomatis).\n"
                        "3. File Direktif Mesin Pencari:\n"
-                       "   • Robots.txt: https://webcraft-studio-id-two.vercel.app/robots.txt\n"
-                       "   • XML Sitemap: https://webcraft-studio-id-two.vercel.app/sitemap.xml\n"
+                       "   • Robots.txt: https://webcraft-studio-aktif.vercel.app/robots.txt\n"
+                       "   • XML Sitemap: https://webcraft-studio-aktif.vercel.app/sitemap.xml\n"
                        "4. Verifikasi Schema Structured Data: Berhasil mendeteksi objek '@type': 'ProfessionalService' dengan nama entitas 'WebCraft Studio'.\n"
                        "5. Repositori Source Code: https://github.com/David4rr/webcraft-studio")
 
