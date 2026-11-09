@@ -177,7 +177,7 @@ def create_report():
         ("Keyword Utama Fokus", "'jasa pembuatan landing page'", "Muncul konsisten di Title Tag, Heading H1, Meta Description, URL path, dan body copy."),
         ("Title Tag Optimization", "73 Karakter (Pass)", "'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio' — Mengandung kata kunci komersial di awal judul."),
         ("Meta Description", "161 Karakter (Pass)", "Informatif, persuasif, menyertakan proposisi nilai waktu (3-5 hari) dan call to action yang jelas."),
-        ("Heading Hierarchy (H1-H3)", "1 H1, 5 H2, 10 H3 (Pass)", "Struktur heading semantik sempurna. Tidak ada heading ganda pada H1 dan tidak ada loncatan level heading."),
+        ("Heading Hierarchy (H1-H3)", "1 H1, 7 H2, 10 H3 (Pass)", "Struktur heading semantik sempurna. Tidak ada heading ganda pada H1 dan tidak ada loncatan level heading."),
         ("Canonical Tag", "https://david4rr.github.io/webcraft-studio/", "Valid dan self-referencing. Mencegah potensi penalti duplicate content akibat variasi protokol atau parameter URL."),
         ("Open Graph & Social Cards", "6 Properti Lengkap (Pass)", "og:title, og:description, og:image, og:url, og:locale (id_ID), dan twitter:card terkonfigurasi sempurna untuk preview medsos."),
         ("Structured Data (JSON-LD)", "Schema ProfessionalService", "Tervalidasi sesuai standar Schema.org dengan rincian tipe usaha, kontak, lokasi, jam operasional, dan katalog harga paket."),

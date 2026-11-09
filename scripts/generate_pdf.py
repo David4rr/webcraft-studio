@@ -220,7 +220,7 @@ def generate_pdf():
         [Paragraph("Keyword Utama", table_cell_bold), Paragraph("'jasa pembuatan landing page'", table_cell), Paragraph("Muncul konsisten di Title Tag, Heading H1, Meta Description, URL, dan body copy.", table_cell)],
         [Paragraph("Title Tag", table_cell_bold), Paragraph("73 Karakter (Pass)", table_cell), Paragraph("'Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis | WebCraft Studio'.", table_cell)],
         [Paragraph("Meta Description", table_cell_bold), Paragraph("161 Karakter (Pass)", table_cell), Paragraph("Informatif, menyertakan keyword komersial dan ajakan aksi WhatsApp dalam 3-5 hari kerja.", table_cell)],
-        [Paragraph("Heading Hierarchy", table_cell_bold), Paragraph("1 H1, 5 H2, 10 H3", table_cell), Paragraph("Struktur heading semantik sempurna tanpa loncatan level heading.", table_cell)],
+        [Paragraph("Heading Hierarchy", table_cell_bold), Paragraph("1 H1, 7 H2, 10 H3", table_cell), Paragraph("Struktur heading semantik sempurna tanpa loncatan level heading.", table_cell)],
         [Paragraph("Canonical Tag", table_cell_bold), Paragraph("Valid (Pass)", table_cell), Paragraph("Self-referencing ke https://david4rr.github.io/webcraft-studio/ mencegah duplicate content.", table_cell)],
         [Paragraph("Open Graph & Cards", table_cell_bold), Paragraph("6 Properti Lengkap", table_cell), Paragraph("og:title, og:description, og:image, og:url, og:locale, twitter:card terkonfigurasi.", table_cell)],
         [Paragraph("Structured Data", table_cell_bold), Paragraph("Schema ProfessionalService", table_cell), Paragraph("Valid JSON-LD Schema.org mendeteksi entitas jasa, alamat, katalog penawaran.", table_cell)],
