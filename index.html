@@ -162,18 +162,139 @@
       letter-spacing: -0.015em;
     }
 
-    /* Tomorro Botanical Atmospheric Orb */
+    /* Botanical Orb Background */
     .botanical-orb {
       background: radial-gradient(circle at 60% 40%, rgba(39, 63, 43, 0.8) 0%, rgba(18, 35, 20, 0) 70%);
     }
 
+    /* ===================================================
+       MOTION CHOREOGRAPHY & SPRING PHYSICS (Awwwards-Tier)
+       =================================================== */
+
+    @keyframes slideDown {
+      from { transform: translateY(-28px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes heroFadeUp {
+      from { transform: translateY(32px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-25px, 20px) scale(1.08); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes floatTiltedCard {
+      0%, 100% { transform: translateY(0) rotate(3deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    /* Initial Hero Entrance Cascades */
+    .animate-nav {
+      animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-stagger-1 {
+      animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      opacity: 0;
+    }
+    .hero-stagger-2 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
+      opacity: 0;
+    }
+    .hero-stagger-3 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.36s forwards;
+      opacity: 0;
+    }
+    .hero-stagger-4 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+      opacity: 0;
+    }
+    .hero-stagger-5 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.64s forwards;
+      opacity: 0;
+    }
+    .hero-card-entrance {
+      animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      opacity: 0;
+    }
+
+    .botanical-orb-animated {
+      animation: floatOrb 14s ease-in-out infinite;
+    }
+
+    .tilted-card-float {
+      animation: floatTiltedCard 7s ease-in-out infinite;
+    }
+
+    /* Scroll Reveal Engine (IntersectionObserver) */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: opacity, transform;
+    }
+    .reveal-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for grid items */
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+
+    /* Interactive Hover Physics for Cards */
+    .interactive-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+    .interactive-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Button Hover Micro-Physics */
+    .btn-pill {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-pill:hover {
+      transform: translateY(-2px);
+    }
     .btn-pill:active {
-      transform: scale(0.98);
+      transform: scale(0.97);
     }
 
     :focus-visible {
       outline: 2px solid #68EF3F;
       outline-offset: 3px;
+    }
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-nav, .hero-stagger-1, .hero-stagger-2, .hero-stagger-3, .hero-stagger-4, .hero-stagger-5, .hero-card-entrance {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .botanical-orb-animated, .tilted-card-float {
+        animation: none !important;
+      }
+      .reveal-up, .reveal-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -184,14 +305,14 @@
     Lewati ke Konten Utama
   </a>
 
-  <!-- Floating Pill Navigation (Tomorro Style Pressed Seed) -->
-  <div class="sticky top-6 z-40 px-4 sm:px-6 w-full flex justify-center">
-    <header class="w-full max-w-5xl bg-onyx-olive/95 backdrop-blur-md border border-white/10 rounded-[28px] px-6 py-3 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+  <!-- Floating Pill Navigation (Tomorro Style Pressed Seed with Entrance Motion) -->
+  <div class="sticky top-6 z-40 px-4 sm:px-6 w-full flex justify-center animate-nav" id="sticky-header">
+    <header class="w-full max-w-5xl bg-onyx-olive/95 backdrop-blur-md border border-white/10 rounded-[28px] px-6 py-3 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all duration-300">
       
       <!-- Brand + Sprout Hiring-style Badge -->
       <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
         <span class="font-display font-extrabold text-base tracking-tight text-white lowercase">webcraft</span>
-        <span class="font-sans text-[10px] font-bold px-2 py-0.5 rounded-full bg-sprout text-onyx-olive tracking-wide">Studio</span>
+        <span class="font-sans text-[10px] font-bold px-2 py-0.5 rounded-full bg-sprout text-onyx-olive tracking-wide group-hover:scale-105 transition-transform">Studio</span>
       </a>
 
       <!-- Minimalist Navigation in Lichen Sage -->
@@ -206,9 +327,9 @@
       <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20pembuatan%20landing%20page%20bisnis." 
          target="_blank" 
          rel="noopener noreferrer"
-         class="btn-pill inline-flex items-center gap-2 px-5 py-2 rounded-[28px] bg-sprout text-carbon font-semibold text-xs hover:bg-[#5ce034] transition-all shadow-[0_0_20px_rgba(104,239,63,0.25)]">
+         class="btn-pill inline-flex items-center gap-2 px-5 py-2 rounded-[28px] bg-sprout text-carbon font-semibold text-xs hover:bg-[#5ce034] transition-all shadow-[0_0_20px_rgba(104,239,63,0.25)] group">
         <span>Konsultasi</span>
-        <span class="text-xs">→</span>
+        <span class="text-xs group-hover:translate-x-1 transition-transform">→</span>
       </a>
 
     </header>
@@ -216,40 +337,41 @@
 
   <main id="main-content" class="flex-grow z-10">
 
-    <!-- HERO SECTION (Dark Forest Depths Stage with Tilted Interface Card) -->
+    <!-- HERO SECTION (Dark Forest Depths Stage with Tilted Interface Card & Stagger Motion) -->
     <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 px-4 sm:px-6 max-w-6xl mx-auto">
       
-      <!-- Atmospheric Orb behind Hero -->
-      <div class="pointer-events-none absolute top-10 right-10 w-[550px] h-[550px] botanical-orb blur-[90px] rounded-full z-0 opacity-70"></div>
+      <!-- Animated Botanical Atmospheric Orb -->
+      <div class="pointer-events-none absolute top-10 right-10 w-[550px] h-[550px] botanical-orb botanical-orb-animated blur-[90px] rounded-full z-0 opacity-70"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
         
         <!-- Left: Copy & Dual CTAs (7 cols) -->
         <div class="lg:col-span-7 text-left">
           
-          <!-- Event Announcement Chip -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-lichen-sage/40 bg-forest-elevated text-xs text-white mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-sprout"></span>
+          <!-- Event Announcement Chip (Stagger 1) -->
+          <div class="hero-stagger-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-lichen-sage/40 bg-forest-elevated text-xs text-white mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-sprout animate-ping"></span>
             <span>Jadwal pengerjaan aktif: <span class="text-sprout font-medium">3-5 Hari Kerja</span></span>
           </div>
 
-          <!-- Stacking Headline with Electric Sprout Accent -->
-          <h1 class="headline-stack text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-8">
+          <!-- Stacking Headline with Electric Sprout Accent (Stagger 2) -->
+          <h1 class="hero-stagger-2 headline-stack text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-8">
             Landing Page <span class="text-sprout">Cepat</span>, Pembeli Datang.
           </h1>
 
-          <p class="text-base sm:text-lg text-pale-fern leading-relaxed max-w-xl mb-10 font-normal">
+          <!-- Body Copy (Stagger 3) -->
+          <p class="hero-stagger-3 text-base sm:text-lg text-pale-fern leading-relaxed max-w-xl mb-10 font-normal">
             Kami membangun landing page berperforma tinggi yang mendominasi peringkat Google dan mengalirkan calon pembeli siap transaksi langsung ke chat WhatsApp Anda.
           </p>
 
-          <!-- Dual CTAs: Electric Sprout Pill + Ghost Outline -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+          <!-- Dual CTAs: Electric Sprout Pill + Ghost Outline (Stagger 4) -->
+          <div class="hero-stagger-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
             <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20untuk%20landing%20page." 
                target="_blank" 
                rel="noopener noreferrer"
-               class="btn-pill inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-[28px] bg-sprout text-carbon font-bold text-xs uppercase tracking-wider hover:bg-[#5ce034] transition-all shadow-[0_0_24px_rgba(104,239,63,0.3)]">
+               class="btn-pill inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-[28px] bg-sprout text-carbon font-bold text-xs uppercase tracking-wider hover:bg-[#5ce034] transition-all shadow-[0_0_24px_rgba(104,239,63,0.3)] group">
               <span>Mulai Konsultasi WhatsApp</span>
-              <span class="text-xs">→</span>
+              <span class="text-xs group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold">→</span>
             </a>
             
             <a href="#layanan" 
@@ -258,8 +380,8 @@
             </a>
           </div>
 
-          <!-- Grounded Spec Notes -->
-          <div class="flex flex-wrap gap-x-8 gap-y-3 text-xs text-pale-fern font-mono pt-4 border-t border-onyx-olive">
+          <!-- Grounded Spec Notes (Stagger 5) -->
+          <div class="hero-stagger-5 flex flex-wrap gap-x-8 gap-y-3 text-xs text-pale-fern font-mono pt-4 border-t border-onyx-olive">
             <div class="flex items-center gap-2">
               <span class="text-sprout">✓</span>
               <span>Skor PageSpeed 95+</span>
@@ -276,15 +398,15 @@
 
         </div>
 
-        <!-- Right: Floating Tilted Interface Card (Tomorro Specimen Card) -->
-        <div class="lg:col-span-5 relative">
-          <div class="transform lg:rotate-3 hover:rotate-0 transition-transform duration-500 ease-out">
+        <!-- Right: Floating Tilted Interface Card with Interactive Physics -->
+        <div class="lg:col-span-5 relative hero-card-entrance">
+          <div id="hero-specimen-card" class="tilted-card-float transition-transform duration-500 ease-out cursor-pointer">
             <div class="bg-white text-onyx-olive rounded-3xl p-6 sm:p-7 shadow-[0_24px_60px_rgba(0,0,0,0.45)] border border-mist-green relative">
               
               <!-- Card Header with Sprout Wash Status Badge -->
               <div class="flex items-center justify-between pb-4 mb-5 border-b border-mist-green/60">
                 <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-sprout-verdant"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-sprout-verdant animate-pulse"></span>
                   <span class="font-mono text-xs font-bold text-onyx-olive uppercase tracking-wider">Audit Performa Live</span>
                 </div>
                 <span class="px-3 py-1 rounded-full bg-sprout-wash text-moss-shadow font-mono text-[11px] font-semibold">
@@ -327,30 +449,30 @@
       </div>
 
       <!-- Trust Logo Strip under Hero -->
-      <div class="mt-20 pt-10 border-t border-onyx-olive text-center">
+      <div class="mt-20 pt-10 border-t border-onyx-olive text-center reveal-up">
         <span class="font-mono text-xs text-pale-fern uppercase tracking-widest block mb-6">
           Standar Rekayasa Dipercaya Pemilik Bisnis & UMKM Indonesia
         </span>
         <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12 text-white/50 font-display text-sm sm:text-base tracking-wider uppercase">
-          <span>Yogyakarta</span>
+          <span class="hover:text-white transition-colors">Yogyakarta</span>
           <span class="text-sprout/60">•</span>
-          <span>Jakarta</span>
+          <span class="hover:text-white transition-colors">Jakarta</span>
           <span class="text-sprout/60">•</span>
-          <span>Surabaya</span>
+          <span class="hover:text-white transition-colors">Surabaya</span>
           <span class="text-sprout/60">•</span>
-          <span>Bandung</span>
+          <span class="hover:text-white transition-colors">Bandung</span>
           <span class="text-sprout/60">•</span>
-          <span>Denpasar</span>
+          <span class="hover:text-white transition-colors">Denpasar</span>
         </div>
       </div>
 
     </section>
 
-    <!-- SECTION 2: LIGHT GREENHOUSE BENCH (Pure White Page + Bone White Cards) -->
+    <!-- SECTION 2: LIGHT GREENHOUSE BENCH (Pure White Page + Bone White Cards with Scroll Reveals) -->
     <section id="masalah" class="py-24 md:py-32 bg-pure-white text-onyx-olive border-t border-mist-green">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
-        <div class="max-w-2xl mb-16 text-left">
+        <div class="max-w-2xl mb-16 text-left reveal-up">
           <span class="font-mono text-xs font-bold text-sprout-verdant uppercase tracking-widest block mb-2">Diagnosa Masalah</span>
           <h2 class="headline-stack text-3xl sm:text-5xl font-extrabold text-onyx-olive mb-4">
             Kenapa Website Konvensional Gagal Menghasilkan Transaksi?
@@ -362,7 +484,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between">
+          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-1">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-display text-lg font-bold text-onyx-olive">1. Beban Plugin Berat vs Kode Bersih</h3>
@@ -377,7 +499,7 @@
             </div>
           </div>
 
-          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between">
+          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-2">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-display text-lg font-bold text-onyx-olive">2. Hilang di Google vs Struktur SEO Lengkap</h3>
@@ -392,7 +514,7 @@
             </div>
           </div>
 
-          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between">
+          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-3">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-display text-lg font-bold text-onyx-olive">3. Formulir Rumit vs Direct WhatsApp</h3>
@@ -407,7 +529,7 @@
             </div>
           </div>
 
-          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between">
+          <div class="p-8 rounded-3xl bg-bone-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-4">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-display text-lg font-bold text-onyx-olive">4. Biaya Sewa Bulanan vs Sekali Bayar</h3>
@@ -431,7 +553,7 @@
     <section id="layanan" class="py-24 md:py-32 bg-forest-depths border-t border-onyx-olive">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-up">
           <span class="font-mono text-xs font-bold text-sprout uppercase tracking-widest block mb-2">Investasi Transparan</span>
           <h2 class="headline-stack text-3xl sm:text-5xl font-extrabold text-white mb-4">
             Pilihan Paket Pembuatan Landing Page & SEO
@@ -444,7 +566,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
           
           <!-- Paket Starter -->
-          <div class="rounded-3xl p-8 bg-forest-elevated border border-onyx-olive flex flex-col justify-between">
+          <div class="rounded-3xl p-8 bg-forest-elevated border border-onyx-olive flex flex-col justify-between interactive-card reveal-card stagger-1">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <h3 class="font-display text-xl font-bold text-white tracking-tight">Paket Starter</h3>
@@ -490,7 +612,7 @@
           </div>
 
           <!-- Paket Growth SEO Pro (Featured Electric Sprout Card) -->
-          <div class="rounded-3xl p-8 bg-forest-surface border-2 border-sprout/60 flex flex-col justify-between relative shadow-[0_0_40px_rgba(104,239,63,0.15)]">
+          <div class="rounded-3xl p-8 bg-forest-surface border-2 border-sprout/60 flex flex-col justify-between relative shadow-[0_0_40px_rgba(104,239,63,0.15)] interactive-card reveal-card stagger-2">
             
             <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full bg-sprout text-carbon font-extrabold text-[10px] tracking-wider uppercase">
               Rekomendasi Utama
@@ -553,7 +675,7 @@
     <section id="proses" class="py-24 md:py-32 bg-bone-white text-onyx-olive border-t border-mist-green">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
-        <div class="max-w-xl mb-16 text-left">
+        <div class="max-w-xl mb-16 text-left reveal-up">
           <span class="font-mono text-xs font-bold text-sprout-verdant uppercase tracking-widest block mb-2">Metodologi Kerja</span>
           <h2 class="headline-stack text-3xl sm:text-5xl font-extrabold text-onyx-olive">
             Alur Pengerjaan Terstruktur 4 Tahap
@@ -562,7 +684,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between">
+          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-1">
             <span class="font-display text-4xl font-extrabold text-sprout-verdant block mb-4">01</span>
             <div>
               <h3 class="font-display text-base font-bold text-onyx-olive mb-2">Riset & Analisis Target</h3>
@@ -572,7 +694,7 @@
             </div>
           </div>
 
-          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between">
+          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-2">
             <span class="font-display text-4xl font-extrabold text-sprout-verdant block mb-4">02</span>
             <div>
               <h3 class="font-display text-base font-bold text-onyx-olive mb-2">Penyusunan Copywriting</h3>
@@ -582,7 +704,7 @@
             </div>
           </div>
 
-          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between">
+          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-3">
             <span class="font-display text-4xl font-extrabold text-sprout-verdant block mb-4">03</span>
             <div>
               <h3 class="font-display text-base font-bold text-onyx-olive mb-2">Koding & Optimasi SEO</h3>
@@ -592,7 +714,7 @@
             </div>
           </div>
 
-          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between">
+          <div class="p-7 rounded-3xl bg-white border border-mist-green flex flex-col justify-between interactive-card reveal-card stagger-4">
             <span class="font-display text-4xl font-extrabold text-sprout-verdant block mb-4">04</span>
             <div>
               <h3 class="font-display text-base font-bold text-onyx-olive mb-2">Peluncuran & Verifikasi</h3>
@@ -611,7 +733,7 @@
     <section id="faq" class="py-24 md:py-32 bg-forest-depths border-t border-onyx-olive">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="text-center max-w-xl mx-auto mb-16 reveal-up">
           <span class="font-mono text-xs font-bold text-sprout uppercase tracking-widest block mb-2">Kejelasan Layanan</span>
           <h2 class="headline-stack text-3xl sm:text-4xl font-extrabold text-white">
             Pertanyaan yang Sering Diajukan
@@ -620,30 +742,30 @@
 
         <div class="space-y-4 mb-24">
           
-          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer">
+          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer reveal-card stagger-1 interactive-card">
             <summary class="font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Berapa lama waktu pengerjaan landing page hingga selesai?</span>
-              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="pt-3 text-xs text-pale-fern leading-relaxed">
               Rata-rata pengerjaan membutuhkan waktu 3 hingga 5 hari kerja setelah materi penawaran dan informasi produk Anda kami terima.
             </div>
           </details>
 
-          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer">
+          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer reveal-card stagger-2 interactive-card">
             <summary class="font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Apakah ada biaya langganan bulanan setelah landing page selesai?</span>
-              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="pt-3 text-xs text-pale-fern leading-relaxed">
               Tidak ada biaya bulanan dari pihak kami. Pembuatan landing page adalah skema bayar satu kali. Anda hanya perlu memperpanjang sewa domain tahunan sesuai harga resmi penyedia registrar.
             </div>
           </details>
 
-          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer">
+          <details class="p-6 rounded-2xl bg-forest-elevated border border-onyx-olive group cursor-pointer reveal-card stagger-3 interactive-card">
             <summary class="font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Apakah saya mendapatkan bantuan jika ingin mengubah teks di kemudian hari?</span>
-              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-sprout text-base group-open:rotate-45 transition-transform duration-300 shrink-0 ml-4">+</span>
             </summary>
             <div class="pt-3 text-xs text-pale-fern leading-relaxed">
               Ya. Setiap paket mencakup masa pendampingan teknis gratis untuk penyesuaian teks, nomor kontak, atau gambar produk selama 14 hari (Paket Starter) atau 30 hari (Paket Growth).
@@ -653,7 +775,7 @@
         </div>
 
         <!-- Final CTA Banner with Atmospheric Sprout Glow -->
-        <div class="rounded-3xl p-8 sm:p-12 bg-forest-surface border border-sprout/40 text-center relative overflow-hidden shadow-[0_0_60px_rgba(104,239,63,0.12)]">
+        <div class="rounded-3xl p-8 sm:p-12 bg-forest-surface border border-sprout/40 text-center relative overflow-hidden shadow-[0_0_60px_rgba(104,239,63,0.12)] reveal-up">
           <div class="pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-sprout/15 blur-[100px] rounded-full"></div>
           
           <div class="relative z-10">
@@ -667,9 +789,9 @@
             <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20pembuatan%20landing%20page." 
                target="_blank" 
                rel="noopener noreferrer"
-               class="btn-pill inline-flex items-center gap-2.5 px-9 py-4 rounded-[28px] bg-sprout text-carbon font-extrabold text-xs uppercase tracking-wider hover:bg-[#5ce034] transition-all shadow-[0_0_30px_rgba(104,239,63,0.35)]">
+               class="btn-pill inline-flex items-center gap-2.5 px-9 py-4 rounded-[28px] bg-sprout text-carbon font-extrabold text-xs uppercase tracking-wider hover:bg-[#5ce034] transition-all shadow-[0_0_30px_rgba(104,239,63,0.35)] group">
               <span>Hubungi Kami via WhatsApp</span>
-              <span class="text-xs">→</span>
+              <span class="text-xs group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">→</span>
             </a>
           </div>
         </div>
@@ -699,6 +821,66 @@
       <p class="font-mono text-[11px] text-pale-fern/80">© 2026 WebCraft Studio. Hak cipta dilindungi.</p>
     </div>
   </footer>
+
+  <!-- IntersectionObserver & Kinetic Interaction Engine -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Scroll-Triggered Reveal via IntersectionObserver
+      const revealElements = document.querySelectorAll(".reveal-up, .reveal-card");
+      
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: "0px 0px -40px 0px"
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add("is-visible"));
+      }
+
+      // 2. Interactive 3D Tilt Physics for Hero Interface Specimen Card
+      const heroCard = document.getElementById("hero-specimen-card");
+      if (heroCard && window.matchMedia("(min-width: 1024px)").matches) {
+        heroCard.addEventListener("mouseenter", () => {
+          heroCard.style.animationPlayState = "paused";
+        });
+
+        heroCard.addEventListener("mousemove", (e) => {
+          const rect = heroCard.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
+          heroCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        });
+
+        heroCard.addEventListener("mouseleave", () => {
+          heroCard.style.transform = "rotate(3deg)";
+          heroCard.style.animationPlayState = "running";
+        });
+      }
+
+      // 3. Floating Header Scroll Blur & Border Highlight
+      const header = document.querySelector("#sticky-header header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          header.classList.add("border-sprout/30", "shadow-[0_12px_40px_rgba(0,0,0,0.55)]");
+        } else {
+          header.classList.remove("border-sprout/30", "shadow-[0_12px_40px_rgba(0,0,0,0.55)]");
+        }
+      }, { passive: true });
+    });
+  </script>
 
 </body>
 </html>
