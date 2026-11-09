@@ -33,7 +33,7 @@ module.exports = {
         sprout: {
           DEFAULT: '#68ef3f',
           wash: '#e7f9dd',
-          verdant: '#26a200'
+          verdant: '#175c04'
         },
         mist: {
           green: '#d9deca'
