@@ -194,16 +194,49 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
     }
 
-    /* Top Reading Progress Bar */
+    /* Lenis Smooth Kinetic Scroll Engine */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-smooth iframe {
+      pointer-events: none;
+    }
+
+    /* Laser Reading Progress Bar */
     #reading-progress {
       position: fixed;
       top: 0;
       left: 0;
       height: 3px;
-      background: var(--color-electric-sprout);
+      background: linear-gradient(90deg, #26a200 0%, #68ef3f 60%, #c4f9b5 100%);
+      box-shadow: 0 0 14px rgba(104, 239, 63, 0.9), 0 0 28px rgba(104, 239, 63, 0.45);
+      z-index: 1000;
       width: 0%;
-      z-index: 100;
-      transition: width 0.1s ease;
+      pointer-events: none;
+      transition: width 0.08s ease-out;
+    }
+
+    /* Floating Nav Morphing Physics */
+    #main-nav-pill {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #main-nav-pill.nav-scrolled {
+      transform: scale(0.985);
+      background-color: rgba(18, 35, 20, 0.94);
+      border-color: rgba(104, 239, 63, 0.28);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(104, 239, 63, 0.12);
     }
 
     /* Motion Engine */
@@ -215,22 +248,26 @@
       animation: floatOrb 12s ease-in-out infinite;
     }
 
-    /* Scroll Reveals */
+    /* Luxury Optical Blur & Scale Scroll Reveals */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(32px) scale(0.975);
+      filter: blur(8px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
     }
     .reveal.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+      filter: blur(0);
     }
 
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-    .delay-4 { transition-delay: 0.32s; }
-
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
     /* Button Physics */
     .btn-pill {
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -289,7 +326,7 @@
 
   <!-- Floating Pill Navigation (Tomorro Specification: 28px radius, Onyx Olive at ~95% opacity, Hiring Tag, Working Dropdown) -->
   <div class="sticky top-4 z-40 px-4 sm:px-6 w-full flex justify-center">
-    <header class="w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-5 sm:px-6 py-2.5 flex items-center justify-between shadow-nav relative">
+    <header id="main-nav-pill" class="w-full max-w-[1120px] bg-[#22271f]/95 backdrop-blur-xl border border-[#3b4134] rounded-[28px] px-5 sm:px-6 py-2.5 flex items-center justify-between shadow-nav relative">
       
       <!-- Wordmark + Hiring Tag Pill -->
       <div class="flex items-center gap-3">
@@ -369,7 +406,7 @@
     <section class="relative pt-8 pb-16 md:pt-12 md:pb-20 px-4 sm:px-6 max-w-[1120px] mx-auto text-center">
       
       <!-- Decorative Sprout Orb (Behind Hero Copy) -->
-      <div class="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 w-[480px] h-[480px] decorative-sprout-orb blur-[80px] rounded-full z-0 opacity-45 animate-orb"></div>
+      <div class="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 w-[480px] h-[480px] decorative-sprout-orb blur-[80px] rounded-full z-0 opacity-45 animate-orb parallax-orb" data-speed="0.08"></div>
 
       <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
         
@@ -653,7 +690,7 @@
     <section id="metode" class="py-16 md:py-24 bg-forest-depths border-t border-[#30322a]">
       <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-lg mx-auto mb-12">
+        <div class="text-center max-w-lg mx-auto mb-12 reveal">
           <span class="text-xs font-mono font-bold text-sprout uppercase tracking-widest block mb-1.5">
             Metode Rekayasa
           </span>
@@ -713,7 +750,7 @@
     <section id="layanan" class="py-16 md:py-24 bg-pure-white text-onyx-olive border-t border-mist-green">
       <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-lg mx-auto mb-12">
+        <div class="text-center max-w-lg mx-auto mb-12 reveal">
           <span class="font-mono text-xs font-bold text-sprout-verdant uppercase tracking-widest block mb-1.5">
             Investasi Jelas & Transparan
           </span>
@@ -728,7 +765,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
           
           <!-- Paket Starter -->
-          <div class="rounded-[22px] p-6 sm:p-7 bg-bone-white border border-[#30322a]/20 flex flex-col justify-between card-lift">
+          <div class="rounded-[22px] p-6 sm:p-7 bg-bone-white border border-[#30322a]/20 flex flex-col justify-between card-lift reveal delay-1">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
                 <h3 class="font-display text-lg font-bold text-onyx-olive tracking-tight">Paket Starter</h3>
@@ -778,7 +815,7 @@
           </div>
 
           <!-- Paket Growth SEO Pro -->
-          <div class="rounded-[22px] p-6 sm:p-7 bg-bone-white border-2 border-sprout/80 flex flex-col justify-between relative shadow-mockup card-lift">
+          <div class="rounded-[22px] p-6 sm:p-7 bg-bone-white border-2 border-sprout/80 flex flex-col justify-between relative shadow-mockup card-lift reveal delay-2">
             
             <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-[20px] bg-sprout text-onyx-olive font-extrabold text-[9px] tracking-wider uppercase">
               Rekomendasi Utama
@@ -845,7 +882,7 @@
     <section id="kalkulator" class="py-16 md:py-24 bg-forest-depths border-t border-[#30322a]">
       <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-lg mx-auto mb-10">
+        <div class="text-center max-w-lg mx-auto mb-10 reveal">
           <span class="font-mono text-xs font-bold text-sprout uppercase tracking-widest block mb-1.5">
             Alat Bantu Interaktif
           </span>
@@ -857,7 +894,7 @@
           </p>
         </div>
 
-        <div class="max-w-2xl mx-auto p-6 sm:p-8 rounded-[24px] bg-forest-elevated border border-[#3b4134] shadow-2xl text-left">
+        <div class="max-w-2xl mx-auto p-6 sm:p-8 rounded-[24px] bg-forest-elevated border border-[#3b4134] shadow-2xl text-left reveal delay-1">
           
           <div class="mb-5">
             <label class="font-display font-bold text-sm text-white block mb-2">1. Pilih Basis Paket Landing Page:</label>
@@ -929,7 +966,7 @@
     <section id="faq" class="py-16 md:py-24 bg-forest-depths border-t border-[#30322a]">
       <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-lg mx-auto mb-12">
+        <div class="text-center max-w-lg mx-auto mb-12 reveal">
           <span class="font-mono text-xs font-bold text-sprout uppercase tracking-widest block mb-1.5">
             Kejelasan Layanan
           </span>
@@ -939,7 +976,7 @@
         </div>
 
         <!-- Interactive Custom Accordion List -->
-        <div class="max-w-2xl mx-auto divide-y divide-[#30322a] border-y border-[#30322a] mb-16">
+        <div class="max-w-2xl mx-auto divide-y divide-[#30322a] border-y border-[#30322a] mb-16 reveal delay-1">
           
           <div class="faq-item py-4 cursor-pointer" onclick="toggleFaq(this)">
             <div class="flex justify-between items-center select-none">
@@ -974,7 +1011,7 @@
         </div>
 
         <!-- Final CTA Banner -->
-        <div class="rounded-[24px] p-7 sm:p-10 bg-forest-elevated border border-sprout/40 text-center relative overflow-hidden shadow-[0_0_50px_rgba(104,239,63,0.12)] max-w-2xl mx-auto">
+        <div class="rounded-[24px] p-7 sm:p-10 bg-forest-elevated border border-sprout/40 text-center relative overflow-hidden shadow-[0_0_50px_rgba(104,239,63,0.12)] max-w-2xl mx-auto reveal delay-2">
           <div class="pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 w-72 h-72 bg-sprout/20 blur-[80px] rounded-full"></div>
           
           <div class="relative z-10">
@@ -1085,17 +1122,76 @@
     </div>
   </footer>
 
-  <!-- Interactive JavaScript Suite (Working Dropdowns, Tabs, Chat Generator, Calculator, Scroll Progress) -->
-  <script>
-    // 1. Reading Progress Bar
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      const bar = document.getElementById('reading-progress');
-      if (bar) bar.style.width = scrolled + '%';
-    }, { passive: true });
+  <!-- High-End Smooth Scroll Engine (Lenis) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 
+  <!-- Interactive JavaScript Suite (Smooth Scroll, Dropdowns, Tabs, Chat Generator, Calculator) -->
+  <script>
+    // 0. Kinetic Smooth Scroll & Dynamic Nav Orchestrator
+    let lenis = null;
+    if (typeof Lenis !== 'undefined') {
+      lenis = new Lenis({
+        duration: 1.25,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.05,
+        touchMultiplier: 1.2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Smooth Anchor Click Navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || !href) return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -80, duration: 1.2 });
+          }
+        });
+      });
+
+      // Scroll Event Orchestration
+      lenis.on('scroll', (e) => {
+        const scrolled = e.limit > 0 ? (e.scroll / e.limit) * 100 : 0;
+        const bar = document.getElementById('reading-progress');
+        if (bar) bar.style.width = scrolled + '%';
+
+        const nav = document.getElementById('main-nav-pill');
+        if (nav) {
+          if (e.scroll > 40) nav.classList.add('nav-scrolled');
+          else nav.classList.remove('nav-scrolled');
+        }
+
+        const orbs = document.querySelectorAll('.parallax-orb');
+        orbs.forEach(orb => {
+          const speed = parseFloat(orb.dataset.speed || '0.08');
+          orb.style.transform = `translate3d(0, ${e.scroll * speed * -0.5}px, 0)`;
+        });
+      });
+    } else {
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const bar = document.getElementById('reading-progress');
+        if (bar) bar.style.width = scrolled + '%';
+
+        const nav = document.getElementById('main-nav-pill');
+        if (nav) {
+          if (winScroll > 40) nav.classList.add('nav-scrolled');
+          else nav.classList.remove('nav-scrolled');
+        }
+      }, { passive: true });
+    }
     // 2. Interactive Navbar Dropdown
     const dropdownWrapper = document.getElementById('nav-dropdown-wrapper');
     const dropdownBtn = document.getElementById('nav-dropdown-btn');
@@ -1225,7 +1321,7 @@
       }
     }
 
-    // 7. Scroll Reveals via IntersectionObserver
+    // 7. Luxury Optical Blur & Scale Scroll Reveals via IntersectionObserver
     document.addEventListener("DOMContentLoaded", () => {
       const reveals = document.querySelectorAll(".reveal");
       if ("IntersectionObserver" in window) {
@@ -1236,7 +1332,7 @@
               obs.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
         reveals.forEach(el => observer.observe(el));
       } else {
