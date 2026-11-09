@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://david4rr.github.io/webcraft-studio/sitemap.xml
+Sitemap: https://webcraft-studio-id-two.vercel.app/sitemap.xml
