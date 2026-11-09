@@ -80,10 +80,10 @@
   }
   </script>
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Syne (Haute-Couture Display) & Plus Jakarta Sans (Clean Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -92,22 +92,19 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            obsidian: '#07090E',
-            surface: {
-              subtle: '#0D111A',
-              card: '#101623',
-              cardElevated: '#141C2D',
-              border: 'rgba(255, 255, 255, 0.08)',
-              borderActive: 'rgba(16, 185, 129, 0.35)'
-            },
-            mint: {
-              DEFAULT: '#10B981',
-              hover: '#059669',
-              glow: 'rgba(16, 185, 129, 0.15)'
+            onyx: '#08090C',
+            charcoal: '#0F1117',
+            card: '#12151E',
+            champagne: {
+              DEFAULT: '#D8B878',
+              light: '#EAD7AE',
+              dark: '#B89656',
+              glow: 'rgba(216, 184, 120, 0.12)'
             }
           }
         }
@@ -117,289 +114,266 @@
 
   <style>
     body {
-      background-color: #07090E;
-      color: #F8FAFC;
+      background-color: #08090C;
+      color: #F1F3F7;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient noise overlay to eliminate digital plastic flatness */
-    .noise-bg {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 24px 24px;
+    h1, h2, h3, .font-display {
+      font-family: 'Syne', sans-serif;
     }
 
-    /* Double-bezel machined styling */
-    .bezel-shell {
-      background: rgba(255, 255, 255, 0.03);
+    /* Subtle luxury champagne hairline highlight */
+    .border-luxury {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .border-luxury:hover {
+      border-color: rgba(216, 184, 120, 0.35);
+    }
+
+    .card-luxury {
+      background: #0F1117;
       border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 0.375rem;
-      border-radius: 1.5rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
     }
-    .bezel-shell:hover {
-      border-color: rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.045);
-    }
-    .bezel-core {
-      background: #0D111A;
-      border-radius: calc(1.5rem - 0.375rem);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    .card-luxury:hover {
+      border-color: rgba(216, 184, 120, 0.25);
+      box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(216, 184, 120, 0.15);
     }
 
-    /* Interactive button click feedback */
-    .btn-tactile:active {
+    .btn-luxury:active {
       transform: scale(0.98);
     }
 
     :focus-visible {
-      outline: 2px solid #10B981;
+      outline: 2px solid #D8B878;
       outline-offset: 3px;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-mint selection:text-black relative noise-bg overflow-x-hidden">
+<body class="min-h-screen flex flex-col selection:bg-champagne selection:text-black relative overflow-x-hidden">
 
-  <!-- Subtle Radial Atmosphere -->
+  <!-- Ambient Luxury Lighting (Warm Champagne & Deep Platinum Aura) -->
   <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-    <div class="absolute -top-[25%] left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-mint/10 via-emerald-950/5 to-transparent blur-[140px] rounded-full"></div>
-    <div class="absolute top-[40%] -right-[15%] w-[600px] h-[400px] bg-blue-950/10 blur-[130px] rounded-full"></div>
+    <div class="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[1000px] h-[650px] bg-gradient-to-b from-champagne/10 via-amber-900/5 to-transparent blur-[160px] rounded-full"></div>
+    <div class="absolute top-[50%] -right-[20%] w-[600px] h-[500px] bg-slate-800/10 blur-[150px] rounded-full"></div>
   </div>
 
   <!-- Accessible Skip Link -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-mint focus:text-black focus:font-bold focus:rounded-lg">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-champagne focus:text-black focus:font-bold focus:rounded">
     Lewati ke Konten Utama
   </a>
 
-  <!-- Floating Island Navigation (High-End Studio Architecture) -->
-  <div class="sticky top-5 z-40 px-4 sm:px-6 w-full flex justify-center">
-    <header class="w-full max-w-4xl bg-obsidian/80 backdrop-blur-xl border border-white/10 rounded-full px-5 py-2.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
-      <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
-        <span class="w-7 h-7 rounded-full bg-mint text-black font-extrabold flex items-center justify-center text-xs tracking-tighter">W</span>
-        <span class="font-bold text-sm tracking-tight text-white group-hover:text-mint transition-colors">WebCraft<span class="text-white/40 font-normal">.studio</span></span>
+  <!-- Architectural Floating Header (Haute-Couture Digital Atelier) -->
+  <div class="sticky top-6 z-40 px-4 sm:px-6 w-full flex justify-center">
+    <header class="w-full max-w-5xl bg-onyx/85 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 flex items-center justify-between shadow-[0_16px_50px_rgba(0,0,0,0.6)]">
+      
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <span class="w-7 h-7 rounded-full bg-gradient-to-br from-champagne-light to-champagne text-black font-extrabold flex items-center justify-center text-xs tracking-wider">W</span>
+        <div class="flex flex-col text-left">
+          <span class="font-display font-extrabold text-sm tracking-wider text-white uppercase group-hover:text-champagne transition-colors">WebCraft</span>
+          <span class="font-mono text-[9px] text-champagne/80 tracking-widest uppercase">Atelier Digital</span>
+        </div>
       </a>
 
-      <!-- Desktop Nav with refined micro-typography -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
-        <a href="#masalah" class="hover:text-white transition-colors">Tantangan</a>
-        <a href="#layanan" class="hover:text-white transition-colors">Paket & Harga</a>
-        <a href="#proses" class="hover:text-white transition-colors">Metode</a>
-        <a href="#faq" class="hover:text-white transition-colors">Tanya Jawab</a>
+      <!-- Minimalist Editorial Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
+        <a href="#masalah" class="hover:text-champagne transition-colors">Kelemahan Pasar</a>
+        <a href="#layanan" class="hover:text-champagne transition-colors">Investasi & Layanan</a>
+        <a href="#proses" class="hover:text-champagne transition-colors">Metodologi</a>
+        <a href="#faq" class="hover:text-champagne transition-colors">Tanya Jawab</a>
       </nav>
 
-      <!-- Action Button with nested trailing icon -->
-      <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20tertarik%20konsultasi%20pembuatan%20landing%20page%20bisnis." 
+      <!-- Exclusive WhatsApp CTA -->
+      <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20eksklusif%20mengenai%20pembuatan%20landing%20page%20bisnis." 
          target="_blank" 
          rel="noopener noreferrer"
-         class="btn-tactile inline-flex items-center gap-2 pl-3.5 pr-2 py-1.5 rounded-full bg-white text-black font-bold text-xs hover:bg-slate-100 transition-all shadow-[0_2px_12px_rgba(255,255,255,0.15)] group">
-        <span>Konsultasi</span>
-        <span class="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[10px]">↗</span>
+         class="btn-luxury inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-champagne/40 bg-champagne/10 text-champagne-light font-semibold text-xs hover:bg-champagne hover:text-black transition-all shadow-[0_0_20px_rgba(216,184,120,0.15)]">
+        <span>Mulai Konsultasi</span>
+        <span class="text-[11px]">→</span>
       </a>
+
     </header>
   </div>
 
   <main id="main-content" class="flex-grow z-10">
 
-    <!-- Asymmetrical Editorial Hero Section -->
-    <section class="pt-16 pb-20 md:pt-24 md:pb-32 px-4 sm:px-6 max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <!-- Hero Section: Haute-Couture Editorial Split -->
+    <section class="pt-20 pb-24 md:pt-28 md:pb-36 px-4 sm:px-6 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         
-        <!-- Left Narrative Column (7 cols) -->
+        <!-- Left: Editorial Narrative (7 cols) -->
         <div class="lg:col-span-7 text-left">
           
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-mint/30 bg-mint/5 text-mint font-mono text-[11px] font-medium tracking-wide mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-mint"></span>
-            Studio Rekayasa Web & Optimasi SEO • Yogyakarta
+          <div class="inline-flex items-center gap-2 mb-6">
+            <span class="h-px w-6 bg-champagne"></span>
+            <span class="font-mono text-xs font-medium tracking-[0.2em] text-champagne uppercase">Atelier Rekayasa Digital • Yogyakarta</span>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
             Jasa Pembuatan Landing Page Cepat & Optimasi SEO Bisnis
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mb-8">
-            Ubah pencari informasi di Google menjadi pembeli nyata. Kami membangun landing page berkecepatan tinggi yang mudah ditemukan calon pembeli dan terhubung langsung ke WhatsApp Anda.
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mb-10 font-normal">
+            Kami tidak membuat template massal. Kami merekayasa landing page eksklusif berkecepatan tinggi yang dirancang untuk membawa bisnis Anda mendominasi pencarian Google dan melipatgandakan konversi penjualan langsung ke WhatsApp.
           </p>
 
-          <!-- Nested CTA Pair -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
-            <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20untuk%20landing%20page." 
+          <!-- Executive CTA Group -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+            <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20jadwalkan%20sesi%20konsultasi%20eksklusif%20landing%20page." 
                target="_blank" 
                rel="noopener noreferrer"
-               class="btn-tactile inline-flex items-center justify-between sm:justify-center gap-3 px-6 py-3.5 rounded-full bg-mint text-black font-extrabold text-sm hover:bg-mint-hover transition-all shadow-[0_0_24px_rgba(16,185,129,0.3)] group">
+               class="btn-luxury inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-champagne-light via-champagne to-champagne-dark text-black font-extrabold text-xs tracking-wider uppercase hover:shadow-[0_0_30px_rgba(216,184,120,0.35)] transition-all">
               <span>Konsultasi Gratis via WhatsApp</span>
-              <span class="w-6 h-6 rounded-full bg-black/15 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold text-xs">↗</span>
+              <span class="text-xs">→</span>
             </a>
             
             <a href="#layanan" 
-               class="btn-tactile inline-flex items-center justify-center px-6 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-white hover:bg-white/[0.08] font-semibold text-sm transition-all text-center">
-              Lihat Pilihan Paket
+               class="btn-luxury inline-flex items-center justify-center px-7 py-4 rounded-full border border-white/15 bg-white/[0.02] text-white hover:border-champagne/50 hover:bg-white/[0.05] font-medium text-xs tracking-wider uppercase transition-all">
+              Lihat Spesifikasi Paket
             </a>
           </div>
 
-          <!-- Micro Grounded Specs -->
-          <div class="pt-6 border-t border-white/10 flex flex-wrap gap-y-3 gap-x-8 text-xs text-slate-300 font-mono">
-            <div class="flex items-center gap-2">
-              <span class="text-mint font-bold">✓</span>
-              <span>Pengerjaan 3-5 Hari Kerja</span>
+          <!-- Proof Metrics Bar -->
+          <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-6">
+            <div>
+              <span class="block font-display text-2xl sm:text-3xl font-extrabold text-white">0.48s</span>
+              <span class="font-mono text-[11px] text-champagne/90 tracking-wide uppercase">Waktu Muat Kilat</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="text-mint font-bold">✓</span>
-              <span>Skor Google PageSpeed 95+</span>
+            <div>
+              <span class="block font-display text-2xl sm:text-3xl font-extrabold text-white">96/100</span>
+              <span class="font-mono text-[11px] text-champagne/90 tracking-wide uppercase">Audit Skor SEO</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="text-mint font-bold">✓</span>
-              <span>100% Hak Milik Tanpa Biaya Bulanan</span>
+            <div>
+              <span class="block font-display text-2xl sm:text-3xl font-extrabold text-white">100%</span>
+              <span class="font-mono text-[11px] text-champagne/90 tracking-wide uppercase">Hak Milik Penuh</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Right Specimen Card: Live Engine Diagnostics HUD (5 cols) -->
+        <!-- Right: Architectural Specification Board (5 cols) -->
         <div class="lg:col-span-5">
-          <div class="bezel-shell">
-            <div class="bezel-core p-6">
+          <div class="card-luxury rounded-3xl p-7 border-champagne/30 relative">
+            
+            <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-champagne"></span>
+                <span class="font-mono text-xs font-semibold text-white tracking-widest uppercase">Standar Mutu Rekayasa</span>
+              </div>
+              <span class="font-mono text-[10px] text-champagne/80 tracking-wider">VERSI 2026</span>
+            </div>
+
+            <div class="space-y-4 text-xs font-normal">
               
-              <!-- HUD Header -->
-              <div class="flex items-center justify-between pb-4 mb-5 border-b border-white/[0.08]">
-                <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-mint animate-pulse"></span>
-                  <span class="font-mono text-xs font-semibold text-white tracking-wider uppercase">Engine Benchmark</span>
-                </div>
-                <span class="font-mono text-[11px] text-slate-400">Mobile Crawler Audit</span>
+              <div class="p-4 rounded-2xl bg-onyx/80 border border-white/5">
+                <span class="font-mono text-[10px] text-champagne uppercase tracking-widest block mb-1">Arsitektur Kode</span>
+                <p class="text-white font-medium text-sm mb-1">Zero Plugin Bloat</p>
+                <p class="text-slate-400 text-xs leading-relaxed">Dibangun dengan semantic HTML5 murni tanpa beban CMS berat demi respon instan di smartphone pengguna.</p>
               </div>
 
-              <!-- Main Benchmark Score Dial -->
-              <div class="p-4 rounded-xl bg-obsidian border border-white/[0.06] mb-5 flex items-center justify-between">
-                <div>
-                  <span class="block font-mono text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Google Lighthouse</span>
-                  <span class="text-2xl font-black text-white tracking-tight">SEO & Core Vitals</span>
-                </div>
-                <div class="flex items-baseline gap-0.5">
-                  <span class="text-4xl font-extrabold text-mint font-mono tracking-tighter">96</span>
-                  <span class="text-xs font-mono text-slate-400">/100</span>
-                </div>
+              <div class="p-4 rounded-2xl bg-onyx/80 border border-white/5">
+                <span class="font-mono text-[10px] text-champagne uppercase tracking-widest block mb-1">Optimasi Algoritma</span>
+                <p class="text-white font-medium text-sm mb-1">Schema.org JSON-LD Valid</p>
+                <p class="text-slate-400 text-xs leading-relaxed">Identitas katalog bisnis, lokasi, dan layanan terstruktur sempurna agar mesin pencari Google menampilkan profil kaya.</p>
               </div>
 
-              <!-- Audit Metric Grid -->
-              <div class="space-y-3 font-mono text-xs">
-                <div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-card border border-white/[0.04]">
-                  <span class="text-slate-300">Largest Contentful Paint</span>
-                  <span class="text-mint font-semibold">0.48s (Kilat)</span>
-                </div>
-
-                <div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-card border border-white/[0.04]">
-                  <span class="text-slate-300">Cumulative Layout Shift</span>
-                  <span class="text-mint font-semibold">0.000 (Stabil)</span>
-                </div>
-
-                <div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-card border border-white/[0.04]">
-                  <span class="text-slate-300">Schema.org JSON-LD</span>
-                  <span class="text-white font-semibold">ProfessionalService</span>
-                </div>
-
-                <div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-card border border-white/[0.04]">
-                  <span class="text-slate-300">Kanal Konversi</span>
-                  <span class="text-mint font-semibold">Direct WhatsApp API</span>
-                </div>
-              </div>
-
-              <div class="mt-5 pt-3.5 border-t border-white/[0.06] text-center">
-                <span class="font-mono text-[11px] text-slate-400">
-                  Terverifikasi di production server GitHub Pages CDN
-                </span>
+              <div class="p-4 rounded-2xl bg-onyx/80 border border-white/5">
+                <span class="font-mono text-[10px] text-champagne uppercase tracking-widest block mb-1">Jalur Transaksi</span>
+                <p class="text-white font-medium text-sm mb-1">WhatsApp Conversion Funnel</p>
+                <p class="text-slate-400 text-xs leading-relaxed">Menghilangkan hambatan formulir rumit. Setiap pengunjung diarahkan ke obrolan personal berpotensi beli tinggi.</p>
               </div>
 
             </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Waktu Pengerjaan</span>
+              <span class="text-white font-bold">3 hingga 5 Hari Kerja</span>
+            </div>
+
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Asymmetric Section: Tantangan Bisnis vs Solusi Nyata -->
-    <section id="masalah" class="py-20 md:py-28 border-t border-white/[0.08] relative">
+    <!-- Section: Kelemahan Pasar vs Solusi Nyata -->
+    <section id="masalah" class="py-24 md:py-32 border-t border-white/10 bg-onyx">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14">
           
-          <!-- Sticky Side Header -->
-          <div class="lg:col-span-4 lg:sticky lg:top-28 self-start text-left">
-            <span class="font-mono text-xs font-bold text-mint uppercase tracking-widest block mb-2">Analisis Masalah</span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <div class="lg:col-span-5 lg:sticky lg:top-28 self-start text-left">
+            <span class="font-mono text-xs font-semibold text-champagne uppercase tracking-widest block mb-3">Analisis Strategis</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               Kenapa Banyak Website Bisnis Gagal Menghasilkan Penjualan?
             </h2>
-            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+            <p class="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
               Memiliki website saja tidak cukup jika pengunjung meninggalkannya sebelum halaman selesai dimuat atau kesulitan menemukan kontak pemesanan.
             </p>
-            <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <span class="text-xs text-slate-300 block mb-1 font-semibold text-white">Fakta Perilaku Konsumen:</span>
-              <p class="text-xs text-slate-400 leading-normal">
-                53% pengguna mobile langsung menutup tab jika loading lebih dari 3 detik. Setiap detik keterlambatan memangkas tingkat konversi hingga 20%.
+            <div class="p-5 rounded-2xl bg-charcoal border border-white/10">
+              <span class="font-display text-sm font-bold text-white block mb-1.5">Fakta Pasar Indonesia:</span>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                53% pengguna smartphone langsung menutup halaman jika waktu muat melampaui 3 detik. Setiap detik penundaan menurunkan peluang transaksi hingga 20%.
               </p>
             </div>
           </div>
 
-          <!-- Comparative Specimen Cards -->
-          <div class="lg:col-span-8 space-y-5">
+          <div class="lg:col-span-7 space-y-6">
             
-            <div class="bezel-shell">
-              <div class="bezel-core p-6">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-base font-bold text-white tracking-tight">1. Beban Plugin Berat vs Kode Bersih Tanpa Bloat</h3>
-                  <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold shrink-0">Masalah Klasik</span>
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                  CMS template sering memuat puluhan skrip CSS/JS yang tidak terpakai, memperlambat akses pelanggan di koneksi 4G seluler Indonesia.
-                </p>
-                <div class="p-3 rounded-xl bg-obsidian border border-mint/20 text-xs text-mint font-medium flex items-center gap-2">
-                  <span class="font-mono font-bold">Solusi WebCraft:</span> Dibangun dengan Semantic HTML5 dan CSS utilitas tanpa beban plugin. Halaman terbuka dalam sekejap.
-                </div>
+            <div class="card-luxury rounded-2xl p-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-display text-base font-bold text-white tracking-tight">1. Beban Plugin Berat vs Kode Bersih Tanpa Bloat</h3>
+                <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Kelemahan Klasik</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Website berbasis CMS murah sering memuat puluhan skrip pihak ketiga yang tidak dibutuhkan, memperlambat akses pelanggan pada jaringan seluler.
+              </p>
+              <div class="p-3.5 rounded-xl bg-onyx border border-champagne/20 text-xs text-champagne-light">
+                <span class="font-bold text-champagne">Solusi WebCraft:</span> Dibangun dengan semantic code murni tanpa plugin. Halaman tampil dalam sekejap mata.
               </div>
             </div>
 
-            <div class="bezel-shell">
-              <div class="bezel-core p-6">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-base font-bold text-white tracking-tight">2. Website Tak Terlihat di Google vs Struktur SEO Lengkap</h3>
-                  <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold shrink-0">Masalah Klasik</span>
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                  Halaman web dibuat hanya cantik visual tetapi tidak memiliki meta tag terstruktur, heading yang tepat, dan Schema.org sehingga gagal diindeks Google.
-                </p>
-                <div class="p-3 rounded-xl bg-obsidian border border-mint/20 text-xs text-mint font-medium flex items-center gap-2">
-                  <span class="font-mono font-bold">Solusi WebCraft:</span> Struktur data Schema.org JSON-LD, sitemap otomatis, dan heading hirarkis untuk mendominasi pencarian lokal.
-                </div>
+            <div class="card-luxury rounded-2xl p-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-display text-base font-bold text-white tracking-tight">2. Website Tak Terlihat di Google vs Struktur SEO Lengkap</h3>
+                <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Kelemahan Klasik</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Hanya mengutamakan tampilan visual tanpa menyusun meta data terstandarisasi, heading yang teratur, dan Schema.org sehingga luput dari radar Google.
+              </p>
+              <div class="p-3.5 rounded-xl bg-onyx border border-champagne/20 text-xs text-champagne-light">
+                <span class="font-bold text-champagne">Solusi WebCraft:</span> Struktur data Schema.org JSON-LD lengkap dan sitemap otomatis untuk memenangkan kata kunci lokal.
               </div>
             </div>
 
-            <div class="bezel-shell">
-              <div class="bezel-core p-6">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-base font-bold text-white tracking-tight">3. Formulir Kaku vs Direct WhatsApp Chat</h3>
-                  <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold shrink-0">Masalah Klasik</span>
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                  Formulir panjang membuat pembeli malas. Di Indonesia, transaksi jauh lebih cepat terjadi ketika pelanggan bisa langsung bertanya personal.
-                </p>
-                <div class="p-3 rounded-xl bg-obsidian border border-mint/20 text-xs text-mint font-medium flex items-center gap-2">
-                  <span class="font-mono font-bold">Solusi WebCraft:</span> Tombol WhatsApp mengambang dengan teks template otomatis yang ramah bagi kebiasaan belanja lokal.
-                </div>
+            <div class="card-luxury rounded-2xl p-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-display text-base font-bold text-white tracking-tight">3. Formulir Kaku vs Direct WhatsApp Chat</h3>
+                <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Kelemahan Klasik</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Formulir isian yang panjang memicu keengganan pembeli. Konsumen Indonesia jauh lebih nyaman bertanya langsung melalui jalur percakapan personal.
+              </p>
+              <div class="p-3.5 rounded-xl bg-onyx border border-champagne/20 text-xs text-champagne-light">
+                <span class="font-bold text-champagne">Solusi WebCraft:</span> Tombol WhatsApp mengambang dengan teks template otomatis yang mempercepat terjadinya kesepakatan jual beli.
               </div>
             </div>
 
-            <div class="bezel-shell">
-              <div class="bezel-core p-6">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <h3 class="text-base font-bold text-white tracking-tight">4. Biaya Langganan Tersembunyi vs Sekali Bayar 100% Milik Anda</h3>
-                  <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold shrink-0">Masalah Klasik</span>
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                  Banyak platform menahan akses file atau mewajibkan sewa bulanan yang membebani kas operasional UMKM yang baru merintis.
-                </p>
-                <div class="p-3 rounded-xl bg-obsidian border border-mint/20 text-xs text-mint font-medium flex items-center gap-2">
-                  <span class="font-mono font-bold">Solusi WebCraft:</span> Skema bayar satu kali untuk jasa pengerjaan. Seluruh arsip source code diserahkan penuh kepada Anda.
-                </div>
+            <div class="card-luxury rounded-2xl p-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-display text-base font-bold text-white tracking-tight">4. Biaya Langganan Tersembunyi vs Sekali Bayar 100% Milik Anda</h3>
+                <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Kelemahan Klasik</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Sistem platform sewa sering mengunci aset Anda dan mewajibkan biaya bulanan tetap yang membebani neraca keuangan bisnis rintisan.
+              </p>
+              <div class="p-3.5 rounded-xl bg-onyx border border-champagne/20 text-xs text-champagne-light">
+                <span class="font-bold text-champagne">Solusi WebCraft:</span> Skema bayar satu kali untuk jasa pengerjaan. Seluruh arsip file dan kode diserahkan penuh kepada Anda.
               </div>
             </div>
 
@@ -410,125 +384,121 @@
       </div>
     </section>
 
-    <!-- Paket Layanan & Harga Transparan (Architectural Tier Setup) -->
-    <section id="layanan" class="py-20 md:py-28 border-t border-white/[0.08] bg-obsidian">
+    <!-- Section: Paket Layanan & Harga Transparan -->
+    <section id="layanan" class="py-24 md:py-32 border-t border-white/10 bg-charcoal">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
         <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="font-mono text-xs font-bold text-mint uppercase tracking-widest block mb-2">Investasi Transparan</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+          <span class="font-mono text-xs font-semibold text-champagne uppercase tracking-widest block mb-2">Investasi Transparan</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
             Pilihan Paket Pembuatan Landing Page & SEO
           </h2>
-          <p class="text-sm text-slate-300">
-            Biaya pasti tanpa biaya siluman. Dirancang khusus untuk mendorong pertumbuhan bisnis nyata.
+          <p class="text-sm text-slate-300 font-normal">
+            Investasi pasti tanpa biaya tersembunyi. Disesuaikan dengan skala target pertumbuhan bisnis Anda.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
           
           <!-- Paket Starter -->
-          <div class="bezel-shell flex flex-col">
-            <div class="bezel-core p-8 flex flex-col justify-between flex-grow">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <h3 class="text-xl font-bold text-white tracking-tight">Paket Starter</h3>
-                  <span class="font-mono text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">UMKM & Personal</span>
-                </div>
-                <p class="text-xs text-slate-300 mb-6">Cocok untuk usaha rintisan yang ingin segera hadir secara online dengan kredibilitas tinggi.</p>
-                
-                <div class="mb-6 pb-6 border-b border-white/[0.08]">
-                  <span class="text-3xl sm:text-4xl font-black text-white font-mono">Rp 750.000</span>
-                  <span class="text-xs text-slate-400 block mt-1">Biaya satu kali pengerjaan</span>
-                </div>
-
-                <ul class="space-y-3.5 text-xs text-slate-300 mb-8 font-medium">
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>1 Halaman Landing Page Single Page</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Tampilan Responsif Seluruh Layar (Mobile & Desktop)</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Integrasi Tombol WhatsApp dengan Template Pesan</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Struktur On-Page SEO (Meta Tag, Canonical, OpenGraph)</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Garansi Waktu Muat Cepat di Jaringan Mobile</span>
-                  </li>
-                </ul>
+          <div class="card-luxury rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-display text-xl font-bold text-white tracking-tight">Paket Starter</h3>
+                <span class="font-mono text-[10px] px-3 py-1 rounded-full border border-white/10 text-slate-300 uppercase tracking-wider">UMKM & Personal</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-6">Pilihan ideal bagi usaha yang ingin segera hadir di internet dengan reputasi terpercaya.</p>
+              
+              <div class="mb-6 pb-6 border-b border-white/10">
+                <span class="font-display text-3xl sm:text-4xl font-extrabold text-white">Rp 750.000</span>
+                <span class="text-xs text-slate-400 block mt-1 font-mono">Biaya satu kali pengerjaan</span>
               </div>
 
-              <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20memesan%20Paket%20Starter%20Rp%20750.000."
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="btn-tactile w-full py-3.5 px-4 text-center font-bold text-xs rounded-full border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-all">
-                Pilih Paket Starter
-              </a>
+              <ul class="space-y-3.5 text-xs text-slate-300 mb-8 font-normal">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>1 Halaman Landing Page Responsif Single Page</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Optimal di Seluruh Layar (Smartphone, Tablet, Desktop)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Integrasi WhatsApp Chat dengan Template Pesan Pesanan</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Struktur On-Page SEO (Meta Tag, Canonical, OpenGraph)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Garansi Waktu Muat Cepat di Jaringan Seluler</span>
+                </li>
+              </ul>
             </div>
+
+            <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20memesan%20Paket%20Starter%20Rp%20750.000."
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn-luxury w-full py-3.5 px-4 text-center font-bold text-xs rounded-full border border-white/20 bg-white/5 text-white hover:border-champagne hover:text-champagne transition-all tracking-wider uppercase">
+              Pilih Paket Starter
+            </a>
           </div>
 
-          <!-- Paket Growth SEO Pro (Featured Card with Double-Bezel Accent) -->
-          <div class="bezel-shell border-mint/40 shadow-[0_0_40px_rgba(16,185,129,0.12)] flex flex-col relative">
-            <div class="bezel-core p-8 flex flex-col justify-between flex-grow relative bg-[#0E1522]">
-              
-              <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full bg-mint text-black font-extrabold text-[10px] tracking-wider uppercase shadow-md">
-                Pilihan Terbaik Bisnis
-              </div>
-
-              <div>
-                <div class="flex items-center justify-between mb-4 mt-2">
-                  <h3 class="text-xl font-bold text-white tracking-tight">Paket Growth SEO Pro</h3>
-                  <span class="font-mono text-[11px] px-2.5 py-1 rounded-full bg-mint/15 text-mint border border-mint/30">Bisnis & Jasa</span>
-                </div>
-                <p class="text-xs text-slate-300 mb-6">Dirancang khusus untuk memenangkan persaingan kata kunci lokal Google dan memaksimalkan konversi pembeli.</p>
-                
-                <div class="mb-6 pb-6 border-b border-white/[0.08]">
-                  <span class="text-3xl sm:text-4xl font-black text-mint font-mono">Rp 1.450.000</span>
-                  <span class="text-xs text-slate-400 block mt-1">Biaya satu kali pengerjaan</span>
-                </div>
-
-                <ul class="space-y-3.5 text-xs text-slate-300 mb-8 font-medium">
-                  <li class="flex items-start gap-2.5 text-white font-semibold">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Semua fitur dalam Paket Starter</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Riset 3-5 Kata Kunci Potensial Kompetitor Bisnis</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Struktur Data Schema.org Local Business & Katalog Produk</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Pendaftaran Google Search Console & XML Sitemap</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Garansi Skor PageSpeed Mobile 95+</span>
-                  </li>
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-mint font-bold">✓</span>
-                    <span>Pendampingan Teknis 30 Hari Pasca Peluncuran</span>
-                  </li>
-                </ul>
-              </div>
-
-              <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20memesan%20Paket%20Growth%20SEO%20Pro%20Rp%201.450.000."
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="btn-tactile w-full py-3.5 px-4 text-center font-bold text-xs rounded-full bg-mint text-black hover:bg-mint-hover transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-                Pilih Paket Growth SEO Pro
-              </a>
+          <!-- Paket Growth SEO Pro (Featured Luxury Tier) -->
+          <div class="card-luxury rounded-3xl p-8 flex flex-col justify-between border-champagne/40 bg-card relative shadow-[0_0_50px_rgba(216,184,120,0.1)]">
+            
+            <div class="absolute -top-3.5 left-8 px-4 py-1 rounded-full bg-gradient-to-r from-champagne-light to-champagne text-black font-extrabold text-[9px] tracking-widest uppercase shadow">
+              Rekomendasi Bisnis
             </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-4 mt-2">
+                <h3 class="font-display text-xl font-bold text-white tracking-tight">Paket Growth SEO Pro</h3>
+                <span class="font-mono text-[10px] px-3 py-1 rounded-full bg-champagne/10 border border-champagne/30 text-champagne tracking-wider uppercase">Bisnis & Jasa</span>
+              </div>
+              <p class="text-xs text-slate-300 mb-6">Dirancang khusus untuk memenangkan persaingan kata kunci lokal Google dan memaksimalkan konversi pembeli.</p>
+              
+              <div class="mb-6 pb-6 border-b border-white/10">
+                <span class="font-display text-3xl sm:text-4xl font-extrabold text-champagne">Rp 1.450.000</span>
+                <span class="text-xs text-slate-400 block mt-1 font-mono">Biaya satu kali pengerjaan</span>
+              </div>
+
+              <ul class="space-y-3.5 text-xs text-slate-200 mb-8 font-normal">
+                <li class="flex items-start gap-2.5 text-white font-semibold">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Semua kapabilitas dalam Paket Starter</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Riset 3-5 Kata Kunci Strategis Kompetitor Industri</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Struktur Data Schema.org Local Business & Katalog Produk</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Pendaftaran Google Search Console & XML Sitemap</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Garansi Skor PageSpeed Mobile 95+</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-champagne font-bold">✓</span>
+                  <span>Pendampingan Teknis 30 Hari Pasca Peluncuran</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20memesan%20Paket%20Growth%20SEO%20Pro%20Rp%201.450.000."
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn-luxury w-full py-3.5 px-4 text-center font-extrabold text-xs rounded-full bg-gradient-to-r from-champagne-light via-champagne to-champagne-dark text-black hover:shadow-[0_0_30px_rgba(216,184,120,0.35)] transition-all tracking-wider uppercase">
+              Pilih Paket Growth SEO Pro
+            </a>
           </div>
 
         </div>
@@ -536,64 +506,56 @@
       </div>
     </section>
 
-    <!-- Linear Progressive Workflow Timeline -->
-    <section id="proses" class="py-20 md:py-28 border-t border-white/[0.08]">
+    <!-- Section: Alur Pengerjaan Terstruktur (Architectural Timeline) -->
+    <section id="proses" class="py-24 md:py-32 border-t border-white/10 bg-onyx">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
         <div class="max-w-xl mb-16 text-left">
-          <span class="font-mono text-xs font-bold text-mint uppercase tracking-widest block mb-2">Tahapan Kerja</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <span class="font-mono text-xs font-semibold text-champagne uppercase tracking-widest block mb-2">Metodologi Rekayasa</span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Alur Pengerjaan Terstruktur 4 Tahap
           </h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <div class="bezel-shell">
-            <div class="bezel-core p-6 h-full flex flex-col justify-between">
-              <span class="font-mono text-3xl font-black text-mint block mb-4">01</span>
-              <div>
-                <h3 class="text-base font-bold text-white mb-2">Riset & Diskusi Target</h3>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Menganalisis keunggulan produk Anda, target calon pembeli, dan kata kunci yang dicari pelanggan potensial di Google.
-                </p>
-              </div>
+          <div class="card-luxury rounded-2xl p-7 flex flex-col justify-between">
+            <span class="font-display text-3xl font-extrabold text-champagne block mb-4">01</span>
+            <div>
+              <h3 class="font-display text-base font-bold text-white mb-2">Riset & Analisis Target</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-normal">
+                Menganalisis keunggulan produk Anda, profil calon konsumen, dan kata kunci pencarian yang relevan di Google.
+              </p>
             </div>
           </div>
 
-          <div class="bezel-shell">
-            <div class="bezel-core p-6 h-full flex flex-col justify-between">
-              <span class="font-mono text-3xl font-black text-mint block mb-4">02</span>
-              <div>
-                <h3 class="text-base font-bold text-white mb-2">Penyusunan Copywriting</h3>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Menyusun teks penawaran yang meyakinkan, menonjolkan manfaat produk, dan mengarahkan pembaca menuju tombol aksi.
-                </p>
-              </div>
+          <div class="card-luxury rounded-2xl p-7 flex flex-col justify-between">
+            <span class="font-display text-3xl font-extrabold text-champagne block mb-4">02</span>
+            <div>
+              <h3 class="font-display text-base font-bold text-white mb-2">Penyusunan Copywriting</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-normal">
+                Menyusun susunan kalimat penawaran yang meyakinkan, menonjolkan manfaat produk, dan mengarahkan pembaca menuju aksi pembelian.
+              </p>
             </div>
           </div>
 
-          <div class="bezel-shell">
-            <div class="bezel-core p-6 h-full flex flex-col justify-between">
-              <span class="font-mono text-3xl font-black text-mint block mb-4">03</span>
-              <div>
-                <h3 class="text-base font-bold text-white mb-2">Koding & Optimasi SEO</h3>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Membangun kode web bersih, responsif di seluruh layar, serta melengkapi seluruh metadata indeks Google.
-                </p>
-              </div>
+          <div class="card-luxury rounded-2xl p-7 flex flex-col justify-between">
+            <span class="font-display text-3xl font-extrabold text-champagne block mb-4">03</span>
+            <div>
+              <h3 class="font-display text-base font-bold text-white mb-2">Koding & Optimasi SEO</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-normal">
+                Membangun kode web bersih, responsif di seluruh layar, serta melengkapi seluruh metadata indeks Google dan Schema.org.
+              </p>
             </div>
           </div>
 
-          <div class="bezel-shell">
-            <div class="bezel-core p-6 h-full flex flex-col justify-between">
-              <span class="font-mono text-3xl font-black text-mint block mb-4">04</span>
-              <div>
-                <h3 class="text-base font-bold text-white mb-2">Peluncuran & Verifikasi</h3>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                  Situs diuji kecepatannya, didaftarkan ke Google Search Console, dan seluruh akses operasional diserahkan kepada Anda.
-                </p>
-              </div>
+          <div class="card-luxury rounded-2xl p-7 flex flex-col justify-between">
+            <span class="font-display text-3xl font-extrabold text-champagne block mb-4">04</span>
+            <div>
+              <h3 class="font-display text-base font-bold text-white mb-2">Peluncuran & Verifikasi</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-normal">
+                Situs diuji kecepatannya, didaftarkan ke Google Search Console, dan seluruh akses operasional diserahkan kepada Anda.
+              </p>
             </div>
           </div>
 
@@ -602,45 +564,45 @@
       </div>
     </section>
 
-    <!-- Transparansi FAQ (Refined Minimalist Accordion) -->
-    <section id="faq" class="py-20 md:py-28 border-t border-white/[0.08] bg-obsidian">
+    <!-- Section: Pertanyaan yang Sering Diajukan (FAQ) -->
+    <section id="faq" class="py-24 md:py-32 border-t border-white/10 bg-charcoal">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
         
-        <div class="text-center max-w-xl mx-auto mb-14">
-          <span class="font-mono text-xs font-bold text-mint uppercase tracking-widest block mb-2">Kejelasan Kerja</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <span class="font-mono text-xs font-semibold text-champagne uppercase tracking-widest block mb-2">Transparansi Layanan</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Pertanyaan yang Sering Diajukan
           </h2>
         </div>
 
         <div class="space-y-4">
           
-          <details class="bezel-shell group cursor-pointer">
-            <summary class="bezel-core p-5 font-bold text-sm text-white flex justify-between items-center list-none select-none">
+          <details class="card-luxury rounded-2xl group cursor-pointer">
+            <summary class="p-6 font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Berapa lama waktu pengerjaan landing page hingga selesai?</span>
-              <span class="font-mono text-mint text-lg group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-champagne text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
             </summary>
-            <div class="px-5 pb-5 pt-2 text-xs text-slate-300 leading-relaxed">
+            <div class="px-6 pb-6 pt-1 text-xs text-slate-300 leading-relaxed font-normal">
               Rata-rata pengerjaan membutuhkan waktu 3 hingga 5 hari kerja setelah materi penawaran dan informasi produk Anda kami terima.
             </div>
           </details>
 
-          <details class="bezel-shell group cursor-pointer">
-            <summary class="bezel-core p-5 font-bold text-sm text-white flex justify-between items-center list-none select-none">
+          <details class="card-luxury rounded-2xl group cursor-pointer">
+            <summary class="p-6 font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Apakah ada biaya langganan bulanan setelah landing page selesai?</span>
-              <span class="font-mono text-mint text-lg group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-champagne text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
             </summary>
-            <div class="px-5 pb-5 pt-2 text-xs text-slate-300 leading-relaxed">
+            <div class="px-6 pb-6 pt-1 text-xs text-slate-300 leading-relaxed font-normal">
               Tidak ada biaya bulanan dari pihak kami. Pembuatan landing page adalah skema bayar satu kali. Anda hanya perlu memperpanjang sewa domain tahunan sesuai harga resmi penyedia registrar.
             </div>
           </details>
 
-          <details class="bezel-shell group cursor-pointer">
-            <summary class="bezel-core p-5 font-bold text-sm text-white flex justify-between items-center list-none select-none">
+          <details class="card-luxury rounded-2xl group cursor-pointer">
+            <summary class="p-6 font-display font-bold text-sm text-white flex justify-between items-center list-none select-none">
               <span>Apakah saya mendapatkan bantuan jika ingin mengubah teks di kemudian hari?</span>
-              <span class="font-mono text-mint text-lg group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
+              <span class="font-mono text-champagne text-base group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
             </summary>
-            <div class="px-5 pb-5 pt-2 text-xs text-slate-300 leading-relaxed">
+            <div class="px-6 pb-6 pt-1 text-xs text-slate-300 leading-relaxed font-normal">
               Ya. Setiap paket mencakup masa pendampingan teknis gratis untuk penyesuaian teks, nomor kontak, atau gambar produk selama 14 hari (Paket Starter) atau 30 hari (Paket Growth).
             </div>
           </details>
@@ -650,24 +612,24 @@
       </div>
     </section>
 
-    <!-- Final Call to Action Section (Agency Level Framing) -->
-    <section class="py-20 md:py-28 border-t border-white/[0.08] relative overflow-hidden">
+    <!-- Section: Final Call to Action -->
+    <section class="py-24 md:py-32 border-t border-white/10 bg-onyx relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
         
-        <span class="font-mono text-xs font-bold text-mint uppercase tracking-widest block mb-3">Mulai Hari Ini</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-5">
+        <span class="font-mono text-xs font-semibold text-champagne uppercase tracking-widest block mb-4">Konsultasi Terbuka</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
           Siap Hadirkan Landing Page Profesional untuk Bisnis Anda?
         </h2>
-        <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
+        <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed mb-10 font-normal">
           Diskusikan target produk dan kata kunci bisnis Anda hari ini. Konsultasi awal bebas biaya dan langsung terhubung dengan tim teknis kami.
         </p>
         
         <a href="https://wa.me/6281234567890?text=Halo%20WebCraft%20Studio,%20saya%20ingin%20konsultasi%20pembuatan%20landing%20page." 
            target="_blank" 
            rel="noopener noreferrer"
-           class="btn-tactile inline-flex items-center gap-3 px-8 py-4 rounded-full bg-mint text-black font-extrabold text-sm hover:bg-mint-hover transition-all shadow-[0_0_30px_rgba(16,185,129,0.35)] group">
+           class="btn-luxury inline-flex items-center gap-3 px-9 py-4 rounded-full bg-gradient-to-r from-champagne-light via-champagne to-champagne-dark text-black font-extrabold text-xs tracking-wider uppercase hover:shadow-[0_0_35px_rgba(216,184,120,0.4)] transition-all">
           <span>Hubungi Kami via WhatsApp Sekarang</span>
-          <span class="w-6 h-6 rounded-full bg-black/15 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform text-xs font-bold">↗</span>
+          <span class="text-xs">→</span>
         </a>
 
       </div>
@@ -675,25 +637,25 @@
 
   </main>
 
-  <!-- Editorial Asymmetric Agency Footer -->
-  <footer class="border-t border-white/[0.08] bg-obsidian py-12 z-10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400">
+  <!-- Editorial Haute-Couture Footer -->
+  <footer class="border-t border-white/10 bg-onyx py-14 z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-xs text-slate-400">
       
       <div class="flex items-center gap-3">
-        <span class="w-6 h-6 rounded-full bg-mint text-black font-extrabold flex items-center justify-center text-[10px]">W</span>
-        <span class="font-bold text-white tracking-tight">WebCraft Studio</span>
-        <span class="text-slate-400">• Rekayasa Landing Page Cepat & SEO Bisnis</span>
+        <span class="w-6 h-6 rounded-full bg-champagne text-black font-extrabold flex items-center justify-center text-[10px]">W</span>
+        <span class="font-display font-bold text-white tracking-wider uppercase">WebCraft Studio</span>
+        <span class="text-slate-500">• Rekayasa Landing Page Cepat & SEO Bisnis</span>
       </div>
 
-      <div class="flex items-center gap-6 font-medium">
-        <a href="#masalah" class="hover:text-white transition-colors">Tantangan</a>
-        <a href="#layanan" class="hover:text-white transition-colors">Layanan</a>
-        <a href="#proses" class="hover:text-white transition-colors">Metode</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-        <a href="mailto:halo@webcraft.id" class="text-mint hover:underline">halo@webcraft.id</a>
+      <div class="flex items-center gap-8 font-medium">
+        <a href="#masalah" class="hover:text-champagne transition-colors">Kelemahan Pasar</a>
+        <a href="#layanan" class="hover:text-champagne transition-colors">Layanan</a>
+        <a href="#proses" class="hover:text-champagne transition-colors">Metodologi</a>
+        <a href="#faq" class="hover:text-champagne transition-colors">Tanya Jawab</a>
+        <a href="mailto:halo@webcraft.id" class="text-champagne hover:underline">halo@webcraft.id</a>
       </div>
 
-      <p class="font-mono text-[11px] text-slate-400">© 2026 WebCraft Studio. Hak cipta dilindungi.</p>
+      <p class="font-mono text-[11px] text-slate-500">© 2026 WebCraft Studio. Hak cipta dilindungi.</p>
     </div>
   </footer>
 
